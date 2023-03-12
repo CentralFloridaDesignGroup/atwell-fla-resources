@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <title>Atwell Point Codes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png">
+
+    <!--Bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!--Datatables-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    
+    <script src="internalScripts.js"></script>
+    <style>
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container py-5">
+            <div class="row">
+                <table class="display compact" id="codes">
+                    <thead>
+                        <tr>
+                            <th>CODE</th>
+                            <th>DESCRIPTION</th>
+                            <th>CATEGORY</th>
+                            <th>TYPE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CB</td>
+                            <td>CATCH BASIN</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>CI</td>
+                            <td>CURB INLET</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>CMP</td>
+                            <td>CORRUGATED METAL PIPE</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>CPP</td>
+                            <td>CORRUGATED PLASTIC PIPE</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DI</td>
+                            <td>DROP INLET</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>DIP</td>
+                            <td>DUCTILE IRON PIPE</td>
+                            <td>UTILITY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DOW</td>
+                            <td>DOWN SPOUT</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>DWCB</td>
+                            <td>DOUBLE WING CATCH BASIN</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FES</td>
+                            <td>FLARED END SECTION</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GI</td>
+                            <td>GRATE INLET</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GT</td>
+                            <td>GREASE TRAP</td>
+                            <td>SANITARY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>HDPE</td>
+                            <td>HIGH DENSITY POLYETHYLENE PIPE</td>
+                            <td>UTILITY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>HW</td>
+                            <td>HEADWALL (DEADWALL)</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>JB</td>
+                            <td>JUNCTION BOX</td>
+                            <td>UTILITY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>LID</td>
+                            <td>STORM STRUCTURE</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>MHS</td>
+                            <td>SANITARY SEWER MANHOLE</td>
+                            <td>SANITARY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>OCS</td>
+                            <td>OUTLET CONTROL</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PVCP</td>
+                            <td>POLYVINYL CHLORIDE (PVC) PIPE</td>
+                            <td>UTILITY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>RCP</td>
+                            <td>REINFORCED CONCRETE PIPE</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>SCO</td>
+                            <td>SANITARY SEWER CLEANOUT</td>
+                            <td>SANITARY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SSFM</td>
+                            <td>FORCEMAIN (UNDERGROUND)</td>
+                            <td>SANITARY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>SSFMV</td>
+                            <td>FORCEMAIN VALVE</td>
+                            <td>SANITARY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SSLS</td>
+                            <td>LIFT STATION</td>
+                            <td>SANITARY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SSMRK</td>
+                            <td>SANITARY SEWER MARKER</td>
+                            <td>SANITARY</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>WI</td>
+                            <td>WEIR</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>YI</td>
+                            <td>YARD DRAIN (INLET)</td>
+                            <td>STORM</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>ANT</td>
+                            <td>ANTENNA</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BH</td>
+                            <td>BORE HOLE</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BIL</td>
+                            <td>BILLBOARD POST</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>COL</td>
+                            <td>COLUMN</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EOM</td>
+                            <td>EDGE OF METAL</td>
+                            <td>GENERAL</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FLA</td>
+                            <td>FLAG POLE</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GUA</td>
+                            <td>GUARDRAIL</td>
+                            <td>GENERAL</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>MAI</td>
+                            <td>MAILBOX</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PG</td>
+                            <td>PLAYGROUND BOUNDARY</td>
+                            <td>GENERAL</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>POS</td>
+                            <td>POST</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SAT</td>
+                            <td>SATELLITE DISH</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SIG</td>
+                            <td>STREET SIGN</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>WET</td>
+                            <td>WETLAND FLAG</td>
+                            <td>GENERAL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FOMRK</td>
+                            <td>FIBER OPTIC DELINIATION POST</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FOPED</td>
+                            <td>FIBER OPTIC PEDISTAL</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>RIT</td>
+                            <td>TELEPHONE RISER</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TCAB</td>
+                            <td>TELEPHONE CABINET</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>THH</td>
+                            <td>TELEPHONE PULL BOX</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TMH</td>
+                            <td>TELEPHONE MANHOLE</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TMRK</td>
+                            <td>TELEPHONE DELINIATION POST</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TPED</td>
+                            <td>TELEPHONE PEDISTAL</td>
+                            <td>TELEPHONE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>UFO</td>
+                            <td>UNDERGROUND FIBER OPTIC CABLE</td>
+                            <td>TELEPHONE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>UGT</td>
+                            <td>UNDERGROUND TELEPHONE CABLE</td>
+                            <td>TELEPHONE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>OTS</td>
+                            <td>OVERHEAD TRAFFIC SIGNAL</td>
+                            <td>TRAFFIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRCAM</td>
+                            <td>TRAFFIC CAMERA</td>
+                            <td>TRAFFIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRHH</td>
+                            <td>TRAFFIC PULL BOX</td>
+                            <td>TRAFFIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRSB</td>
+                            <td>TRAFFIC SIGNAL BOX</td>
+                            <td>TRAFFIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRSP</td>
+                            <td>TRAFFIC SIGNAL POLE</td>
+                            <td>TRAFFIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BIR</td>
+                            <td>BIRCH TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CED</td>
+                            <td>CEDAR TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CHE</td>
+                            <td>CHERRY TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CM</td>
+                            <td>CRAPE MYRTLE TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>DOG</td>
+                            <td>DOGWOOD TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GUM</td>
+                            <td>GUM TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>LNDISD</td>
+                            <td>LANDSCAPE ESLAN?</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>MAG</td>
+                            <td>MAGNOLIA TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>MAP</td>
+                            <td>MAPLE TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>OAK</td>
+                            <td>OAK TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>ORN</td>
+                            <td>ORNAMENTAL TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PIN</td>
+                            <td>PINE TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>POP</td>
+                            <td>POPULAR TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SPR</td>
+                            <td>SPRUCE TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SYC</td>
+                            <td>SYCAMORE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRH</td>
+                            <td>HARDWOOD TREE</td>
+                            <td>TREE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>WOH</td>
+                            <td>HEAVY WOODLINE</td>
+                            <td>TREE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>WOL</td>
+                            <td>LIGHT WOODLINE</td>
+                            <td>TREE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>WOM</td>
+                            <td>MEDIUM WOODLINE</td>
+                            <td>TREE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BFP</td>
+                            <td>BACKFLOW PREVENTER</td>
+                            <td>WATER</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FDC</td>
+                            <td>FIRE DEPARTMENT CONNECTION</td>
+                            <td>WATER</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>HYD</td>
+                            <td>FIRE HYDRANT</td>
+                            <td>WATER</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>ICV</td>
+                            <td>IRRIGATION CONTROL VALVE</td>
+                            <td>IRRIGATION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>MET</td>
+                            <td>WATER METER</td>
+                            <td>WATER</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PIV</td>
+                            <td>POST INDICATOR VALVE</td>
+                            <td>WATER</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SPH</td>
+                            <td>SPRINKLER HEAD</td>
+                            <td>IRRIGATION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SPV</td>
+                            <td>SPRINKLER VALVE</td>
+                            <td>IRRIGATION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>ASPH</td>
+                            <td>ASPHALT SPOT ELEVATION</td>
+                            <td>ROAD</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BOB</td>
+                            <td>BOTTOM OF BANK</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BW</td>
+                            <td>BOTTOM OF WALL</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>CLR</td>
+                            <td>CENTERLINE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>CONC</td>
+                            <td>CONCRETE SPOT ELEVATION</td>
+                            <td>TOPO</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EOW</td>
+                            <td>EDGE OF WATER</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>ER</td>
+                            <td>EDGE OF ROCK</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FIE</td>
+                            <td>PLOWED FIELD SHOT</td>
+                            <td>TOPO</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FLM</td>
+                            <td>FLUME</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GRV</td>
+                            <td>GRAVEL SPOT ELEVATION</td>
+                            <td>TOPO</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>RIP</td>
+                            <td>RIP RAP</td>
+                            <td>STORM</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>SPO</td>
+                            <td>SPOT SHOT</td>
+                            <td>TOPO</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SWL</td>
+                            <td>SWALE CENTERLINE</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>TOB</td>
+                            <td>TOP OF BANK</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>TOW</td>
+                            <td>TOP OF WATER</td>
+                            <td>TOPO</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TW</td>
+                            <td>TOP OF WALL</td>
+                            <td>TOPO</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BRI</td>
+                            <td>BRIDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BFE</td>
+                            <td>BASEMENT FLOOR ELEVATION</td>
+                            <td>BUILDING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BLB</td>
+                            <td>CORNER OF BRICK BUILDING</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BLC</td>
+                            <td>CORNER OF CONCRETE BUILDING</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BLF</td>
+                            <td>CORNER OF FRAMED BUILDING</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BLO</td>
+                            <td>CORNER OF BUILDING (NO MATERIAL)</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DECK</td>
+                            <td>DECK</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FFE</td>
+                            <td>FINISHED FLOOR ELEVATION</td>
+                            <td>BUILDING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GFE</td>
+                            <td>GARAGE FLOOR ELEVATION</td>
+                            <td>BUILDING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>POR</td>
+                            <td>PORCH</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PTW</td>
+                            <td>WOOD PATIO</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BLM</td>
+                            <td>CORNER OF BUILDING (? MATERIAL)</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BLK</td>
+                            <td>CORNER OF BUILDING (? MATERIAL)</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>OHO</td>
+                            <td>OVERHEAD OTHER</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>TVCAB</td>
+                            <td>TELEVISION CABLE</td>
+                            <td>TELEVISION</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>TVHH</td>
+                            <td>TELEVISION PULL BOX</td>
+                            <td>TELEVISION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TVMH</td>
+                            <td>TELEVISION MANHOLE</td>
+                            <td>TELEVISION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TVMRK</td>
+                            <td>TELEVISION DELINIATION POST</td>
+                            <td>TELEVISION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TVPED</td>
+                            <td>TELEVISION PEDISTAL</td>
+                            <td>TELEVISION</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>UGC</td>
+                            <td>UNDERGROUND CABLE</td>
+                            <td>UTILITY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BSK</td>
+                            <td>BACKSIGHT</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TRP</td>
+                            <td>TRAVERSE POINT</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BCA</td>
+                            <td>CURB ASPHALT</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>BCC</td>
+                            <td>BACK OF CURB</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>AC</td>
+                            <td>AIR CONDITIONER</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EBOX</td>
+                            <td>ELECTRICAL BOX</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EHH</td>
+                            <td>ELECTRIC PULL BOX</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EMH</td>
+                            <td>ELECTRIC MANHOLE</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EMRK</td>
+                            <td>ELECTRICAL DELINIATION POST</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EMT</td>
+                            <td>ELECTRIC METER</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>EPNL</td>
+                            <td>ELECTRIC PANEL</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>ETR</td>
+                            <td>TRANSFORMER PAD</td>
+                            <td>ELECTRIC</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GUY</td>
+                            <td>GUY ANCHOR</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>HTPP</td>
+                            <td>TRANSMISSION POLE</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>LPI</td>
+                            <td>LIGHT POLE</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>OHE</td>
+                            <td>OVERHEAD ELECTRIC WIRE</td>
+                            <td>ELECTRIC</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>OHW</td>
+                            <td>OVERHEAD WIRE</td>
+                            <td>UTILITY</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>SL</td>
+                            <td>STREET LIGHT</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SPL</td>
+                            <td>SPOT LIGHT</td>
+                            <td>ELECTRIC</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>UGE</td>
+                            <td>UNDERGROUND ELECTRIC CABLE</td>
+                            <td>ELECTRIC</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>UTP</td>
+                            <td>ELECTRIC POWER</td>
+                            <td>ELECTRIC</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEB</td>
+                            <td>WOOD BOARD FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEC</td>
+                            <td>CHAINLINK FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEF</td>
+                            <td>FARM FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEI</td>
+                            <td>WROUGHT IRON FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEP</td>
+                            <td>FENCE POST</td>
+                            <td>FENCE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FER</td>
+                            <td>POST AND RAIL FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>FEW</td>
+                            <td>BAR FENCE</td>
+                            <td>FENCE</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GATE</td>
+                            <td>FENCE GATE</td>
+                            <td>FENCE</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GMRK</td>
+                            <td>GAS DELINIATION POST</td>
+                            <td>GAS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GSM</td>
+                            <td>GAS METER</td>
+                            <td>GAS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GSV</td>
+                            <td>GAS VALVE</td>
+                            <td>GAS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GVLT</td>
+                            <td>GAS VAULT</td>
+                            <td>GAS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>GVP</td>
+                            <td>GAS VENT</td>
+                            <td>GAS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>UGG</td>
+                            <td>UNDERGROUND GAS PIPE</td>
+                            <td>GAS</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>AXF</td>
+                            <td>FOUND AXEL</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>BM</td>
+                            <td>BENCHMARK FOUND / SET</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CMF</td>
+                            <td>CONCRETE MONUMENT</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CTF</td>
+                            <td>CRIMP TOP FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FIP</td>
+                            <td>IRON PIPE FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>FIR</td>
+                            <td>IRON ROD FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>IPF</td>
+                            <td>IRON PIN FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>IPFC</td>
+                            <td>IRON PIN &amp; CAP FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>IPS</td>
+                            <td>IRON ROD SET</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>OTF</td>
+                            <td>OPEN TOP FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PKF</td>
+                            <td>PK NAIL FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PKS</td>
+                            <td>PK NAIL SET</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>RWM</td>
+                            <td>RIGHT-OF-WAY MONUMENT FOUND</td>
+                            <td>MONUMENTS</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>HC</td>
+                            <td>HANDICAP</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PAI</td>
+                            <td>PAVEMENT STRIPING</td>
+                            <td>STRIPING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PSDY</td>
+                            <td>DOUBLE YELLOW STRIPING</td>
+                            <td>STRIPING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PSW</td>
+                            <td>WHITE STRIPING</td>
+                            <td>STRIPING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>SCHOOL</td>
+                            <td>"SCHOOL" STRIPING TEXT</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TAB</td>
+                            <td>STRIGHT &amp; TURN ARROW</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TAL</td>
+                            <td>LEFT TURN ARROW</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TAR</td>
+                            <td>RIGHT TURN ARROW</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TAS</td>
+                            <td>STRAIGHT ARROW</td>
+                            <td>STRIPING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>CLRR</td>
+                            <td>CENTERLINE OF RAILS</td>
+                            <td>RAIL</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>RRMP</td>
+                            <td>RAILROAD MILE POST</td>
+                            <td>RAIL</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>TR</td>
+                            <td>RAILROAD TRACK</td>
+                            <td>RAIL</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DRA</td>
+                            <td>ASPHALT DRIVEWAY EDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DRB</td>
+                            <td>BRICK DRIVEWAY EDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DRC</td>
+                            <td>CONCRETE DRIVEWAY EDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DRD</td>
+                            <td>DIRT DRIVEWAY EDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>DRG</td>
+                            <td>GRAVEL DRIVEWAY EDGE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>EC</td>
+                            <td>EDGE OF CONCRETE DRIVE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>ECP</td>
+                            <td>EDGE OF CONCRETE PAVEMENT DRIVE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>ESW</td>
+                            <td>SIDEWALK</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>GUT</td>
+                            <td>CURB GUTTER FLOW LINE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>HRAMP</td>
+                            <td>HANDICAP RAMP</td>
+                            <td>ROAD</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>PTC</td>
+                            <td>CONCRETE PATIO</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PVA</td>
+                            <td>EDGE OF ASPHALT PAVEMENT DRIVE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PVB</td>
+                            <td>EDGE OF BRICK DRIVE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>PVC</td>
+                            <td>EDGE OF CONCRETE DRIVE</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>HANDICAP RAMP</td>
+                            <td>ROAD</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>STA</td>
+                            <td>STAIRS</td>
+                            <td>BUILDING</td>
+                            <td>LINE</td>
+                        </tr>
+                        <tr>
+                            <td>STEP</td>
+                            <td>STEP</td>
+                            <td>BUILDING</td>
+                            <td>POINT</td>
+                        </tr>
+                        <tr>
+                            <td>SWC</td>
+                            <td>SIDEWALK</td>
+                            <td>ROAD</td>
+                            <td>LINE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let table = new DataTable('#codes', {
+            paging: false,
+            ordering: [[0, 'asc']]
+        });
+    });
+</script>
+
+</html>
