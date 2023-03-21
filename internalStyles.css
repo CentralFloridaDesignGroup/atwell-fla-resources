@@ -10,20 +10,18 @@
   --bs-btn-disabled-border-color: #AB1D2C;
 }
 
-.input-group .form-control,
-.input-group .form-select,
-.input-group-text {
-  border-color: #AB1D2C;
-}
 
 .autocad-command {
   /* background-color: var(--bs-secondary); */
   border: 1px solid;
   /* color: var(--bs-white); */
   padding: 0.125rem 0.5rem;
-  border-radius: 3px;
+  border-radius: 10px;
   text-transform: uppercase;
   font-family: Arial;
+  background-color: white;
+  color: black;
+  font-weight: 500;
 }
 
 .bg-danger {
@@ -31,4 +29,11 @@
   padding-left: 0.25rem;
   font-weight: bold;
   border-radius: 3px;
+}
+
+.hl-orange {
+  background-color: var(--bs-orange);
+  color: black;
+  padding: 2px 5px;
+  border-radius: 5px;
 }

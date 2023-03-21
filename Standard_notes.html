@@ -2,277 +2,167 @@
 <html lang="en">
 
 <head>
-  <title>Standard Notes</title>
+  <title>Survey Notes - Florida</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png">
 
   <!--Bootstrap 5-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-          crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
   <!--JQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-  <!--Internal script-->
-  <script src="internalScripts.js"></script>
+  <!--Internal style-->
   <link href="internalStyles.css" rel="stylesheet">
+
+  <!--Internal script-->
+  <script src="scripts\CommonScripts.js"></script>
+  <script src="scripts/notesHandler.js"></script>
 </head>
 
 <main>
-  <div class="container-fluid">
-    <!-- Sidebar contents -->
-    <div class="row flex-nowrap">
-      <div class="col-2 px-sm-2 px-0">
-        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white sticky-top">
-          <span class="fs-5 d-none d-sm-inline">Contents</span>
-          <a href="/" class="btn btn-sm btn-primary mt-2 d-block w-100">Return to home page</a>
-          <a class="btn btn-sm btn-secondary mt-2 mb-3 d-block w-100 disabled" onclick="getNoteList()" id="generateNoteListBtn">Get note list</a>
-          <nav id="navbar-contents" class="h-100 flex-column align-items-stretch pe-4">
-            <nav class="nav nav-pills flex-column">
-              <a class="nav-link" href="#signature-requirements">Signature Requirements</a>
-              <a class="nav-link" href="#abstraction">Abstraction</a>
-              <a class="nav-link" href="#vertical-datum">Vertical Datum</a>
-              <a class="nav-link" href="#horizontal-datum">Horizontal Datum</a>
-            </nav>
-        </div>
+
+  <div class="container pt-4">
+    <div class="row" id="fema-firm-information">
+      <h4 class="text-center">FEMA FIRM Information</h4>
+      <div class="col-12 col-lg-6">
+        <h5 hidden>Section sub-heading</h5>
+        <p class="autocad-command" use="note">
+          THE LANDS SHOWN HEREON LIE IN<span target="femaZones"> <span class="hl-orange">{Flood zones}</span></span>, PER<span target="lomarNote"> <span class="hl-orange">{LOMAR DATA}</span></span> FLOOD INSURANCE RATE MAP (FIRM) COMMUNITY PANEL NO. <span target="femaFlood" class="hl-orange">{PANEL NUMBER}</span> FOR <span target="femaJurisdiction" class="hl-orange">{COMMUNITY NAME}</span>, EFFECTIVE <span target="femaEffectiveDate" class="hl-orange">{EFFECTIVE DATE}</span>. THE LIMITS OF SAID ZONES ARE GRAPHICALLY DEPICTED HEREON AS NEAR AS MAY BE SCALED FROM SAID MAP OR IMPORTED FROM GIS DATA PROVIDED BY FEMA. THE ABOVE STATEMENT IS FOR INFORMATION ONLY AND WE ASSUME NO LIABILITY FOR THE CORRECTNESS OF THE CITED MAP(S). IN ADDITION, THE ABOVE STATEMENT DOES NOT REPRESENT THE SURVEYOR’S OPINION OF THE PROBABILITY OF FLOODING.</span>
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
       </div>
-      <div class="col py-3">
-        <div class="container" div data-bs-spy="scroll" data-bs-target="#navbar-contents" data-bs-smooth-scroll="true"
-             class="scrollspy" tabindex="0">
+      <div class="col-12 col-lg-6">
+        In 90 percent of surveys, the surveyor is responsibile for stating, in their professional opinion, what flood zones affect the subject property. We want to cite our sources including the panel number, community that encompasses the property, and the effective date of the panel. If we have a &quot;Letter of Map Revision&quot; (LOMR), we also need to specify that information.
+        <p class="mb-1"><span class="hl-orange">FLOOD ZONES</span> are the names and descriptions of each flood zone that touch the property.</p>
+        <p class="mb-1"><span class="hl-orange">LOMAR DATA</span> includes the letter's title, the case number, and date. Note that the flood zone information will come from a LOMR if one is provided.</p>
+        <p class="mb-1"><span class="hl-orange">PANEL NUMBER</span> is the FIRM panel number in 00000X0000X format.</p>
+        <p class="mb-1"><span class="hl-orange">COMMUNITY NAME</span> is the name of the community, optionally with the community number.</p>
+        <p><span class="hl-orange">EFFECTIVE DATE</span> is the date where the map was made effective <b>or revised</b>.</p>
+      </div>
+    </div>
+
+    <div class="position-absolute bottom-0 end-0">
+      <button class="btn btn-primary d-print-none mb-4 me-4" data-bs-toggle="modal" data-bs-target="#modalForm">Open note form</button>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="modalForm">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body container">
           <div class="row">
-            <h3>Surveyor's Notes</h3>
-            <p>Surveyor's notes are a critical part of every product. They clarify Surveyor's intent, show compliance with statutory requirements, and provide a place for information that cannot go on the map. The language behind surveyor's notes are purposefully written to maintain as little liability on the Surveyor, and can be rather confusing on what they mean. This page is meant to help teach new technicians and surveyors the <i>why</i> behind notes. This page also has certain words colored <span style="color: var(--bs-orange)">in a orange color</span> to help draw your focus to what may change from survey to survey.
-            </p>
+            <h5>FEMA FIRM Information</h5>
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input class="form-control" id="femaFlood" placeholder="00000X0000X" target-field="femaFlood">
+                <label for="femaFlood">FEMA FIRM Panel</label>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input class="form-control" id="femaJurisdiction" placeholder="00000X0000X" target-field="femaJurisdiction">
+                <label for="femaJurisdiction">Jurisdiction Name</label>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="femaEffectiveDate" placeholder="a" target-field="femaEffectiveDate">
+                <label for="femaJurisdiction">Effective Date</label>
+              </div>
+            </div>
           </div>
           <div class="row">
-            <div class="col-12 col-md-6 pb-2 text-center">
-              <h3>Note Language</h3>
+            <div class="col-12 col-lg-3 mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="femaZoneX" checked>
+              <label class="form-check-label" for="femaZoneX"><b>Zone X (Unshaded)</b></label>
+              <p>Areas determined to be outside the 0.2% annual chance floodplain.</p>
             </div>
-            <div class="d-none d-md-block col-md-6 pb-2 text-center">
-              <h3>Note Explanation</h3>
+            <div class="col-12 col-lg-3 mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="femaZoneX2">
+              <label class="form-check-label" for="femaZoneX2"><b>Zone X (Shaded)</b></label>
+              <p>Areas of 0.2% annual chance flood; areas of 1% annual chance flood with average depths of less than 1 foot or with drainage areas less than 1 square mile; and areas protected by levees from 1% annual chance flood.</p>
             </div>
-            <hr>
-            <h4 class="text-center" id="signature-requirements">Signature Requirements</h4>
-            <div class="col-12 col-md-6 pb-2">
-              <div class="mb-4">
-                <h5>Maps of Survey</h5>
-                <div class="autocad-command mb-2" id="note-1a">
-                  THIS MAP OF <span style="color: var(--bs-orange)" id="type-of-survey-value">BOUNDARY SURVEY</span> IS
-                  NOT VALID UNLESS IT BEARS THE SIGNATURE AND SEAL OF THE FLORIDA LICENSED SURVEYOR AND MAPPER
-                  IDENTIFIED BELOW.
-                </div>
-                <button type="button" class="btn btn-primary" id="copy-1a" onclick="CopyTextToClipboard('note-1a')">Copy
-                  to clipboard</button>
-                <button type="button" class="btn btn-secondary" id="add-1a" onclick="toggleNote(this, 'note-1a')">Add to
-                  List</button>
-              </div>
-              <div class="mb-4">
-                <h5>Sketch and Descriptions</h5>
-                <div class="autocad-command mb-2" id="note-1b">
-                  THIS LEGAL DESCRIPTION IS NOT VALID IF PRINTED, OR WITHOUT THE ORIGINAL SIGNATURE AND RAISED SEAL OF
-                  THE
-                  PROFESSIONAL SURVEYOR AND MAPPER SHOWN HEREON.
-                </div>
-                <button type="button" class="btn btn-primary" id="copy-1b" onclick="CopyTextToClipboard('note-1b')">Copy
-                  to clipboard</button>
-                <button type="button" class="btn btn-secondary" id="add-1b" onclick="toggleNote(this, 'note-1b')">Add to
-                  List</button>
-              </div>
+            <div class="col-12 col-lg-3 mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="femaZoneA">
+              <label class="form-check-label" for="femaZoneA"><b>Zone A</b></label>
+              <p>No base flood elevation determined.</p>
             </div>
-            <div class="d-none d-md-block col-md-6 pb-2">
-              <div class="mb-3">
-                <div class="input-group">
-                  <span class="input-group-text" id="type-of-survey-label">Type of Survey</span>
-                  <input type="text" class="form-control" id="type-of-survey" aria-describedby="type-of-survey-label"
-                         value="Boundary Survey" onkeyup="setText(this, 'type-of-survey-value')">
-                </div>
+            <div class="col-12 col-lg-3 mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="femaZoneAE">
+              <label class="form-check-label mb-2" for="femaZoneAE"><b>Zone AE</b></label>
+              <p>Base flood elevation determined at <span target="femaElevation" class="hl-orange py-0 my-0">X</span> feet.</p>              
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="femaElevation">BFE Elevation</span>
+                <input type="number" class="form-control" aria-label="BFE Elevation" aria-describedby="femaElevation" 
+                target-field="femaElevation" id="femaElevationForm">
               </div>
-              <p>This note is required per &sect;5J-17.051(3)(e), Florida Administrative Code, which states:</p>
-              <p><i>(e) The survey map and report and the copies of the survey map and report, except those with electronic signature and electronic seal, must contain a statement indicating that the survey map and report or the copies thereof are not valid without the original signature and seal of a Florida licensed surveyor and mapper.</i></p>
-              <p>This note is also incorporated into the signing block itself along with the reference to a digital signature as required in &sect; 5J-17.062, FAC.</p>
-              <p>The Sketch and Description note varies slightly by just stating that we are only certifying the legal description and not the sketch.</p>
             </div>
           </div>
-          <hr class="my-2 py-0">
-          <div class="row">
-            <h4 class="text-center" id="abstraction">Abstraction</h4>
-            <div class="col-12 col-md-6 pb-2">
-              <div class="autocad-command mb-2" id="note-2">
-                NO ABSTRACT FOR RIGHTS-OF-WAY, EASEMENTS, OWNERSHIP OR OTHER INSTRUMENTS OF RECORD HAVE BEEN PROVIDED TO THIS FIRM.
-              </div>
-              <button type="button" class="btn btn-primary" id="copy-2" onclick="CopyTextToClipboard('note-2')">Copy to clipboard</button>
-              <button type="button" class="btn btn-secondary" id="add-2" onclick="toggleNote(this, 'note-2')">Add to List</button>
-            </div>
-            <div class="d-none d-md-block col-md-6 pb-2">
-              <p>Surveyors are not land title agents and we have no obligation to do any research of public records when preparing a survey. It is a protection note in the event that, if a easement, right-of-way, or other encumbrance is discovered that affects the land, we are not liable for it's absence.</p>
-              <p><span class="bg-danger">Do not use</span> if we received any title work for the project, either through an ALTA request or through a Property Information Report.</p>
+          <div class="row mb-2">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="showLomarFields">
+              <label class="form-check-label" for="showLomarFields">This project has a LOMAR document associated with it.</label>
             </div>
           </div>
-          <hr class="my-2 py-0">
-          <div class="row">
-            <h4 class="text-center" id="vertical-datum">Elevations</h4>
-            <div class="col-12 col-md-6 pb-2">
-              <div class="autocad-command mb-2" id="note-3a">
-                ELEVATIONS SHOWN HEREON ARE RELATIVE TO <span style="color: var(--bs-orange)" id="datum-value">THE NORTH AMERICAN VERTICAL DATUM OF 1988</span> AND IS BASED ON THE FOLLOWING BENCHMARK: <span style="color: var(--bs-orange)" id="benchmark-value">Benchmark Info</span>
+          <div class="row" id="lomarInfo" hidden> 
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input class="form-control" id="lomarName" placeholder="a" target-field="lomarName">
+                <label for="lomarName">LOMAR Document Name</label>
               </div>
-              <button type="button" class="btn btn-primary" id="copy-3a" onclick="CopyTextToClipboard('note-3a')">Copy to clipboard</button>
-              <button type="button" class="btn btn-secondary" id="add-3a" onclick="toggleNote(this, 'note-3a')">Add to List</button>
-            </div>
-            <div class="d-none d-md-block col-md-6 pb-2">
-              <div class="input-group mb-2">
-                <span class="input-group-text" id="benchmarkName-label">Benchmark Name</span>
-                <input type="text" class="form-control" id="benchmarkName" aria-describedby="benchmarkName-label"
-                       placeholder="Benchmark" onkeyup="buildBenchmark()">
+            </div>           
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input class="form-control" id="lomarCaseNo" placeholder="a" target-field="lomarCaseNo">
+                <label for="lomarCaseNo">LOMAR Case Number</label>
               </div>
-              <div class="input-group mb-2">
-                <span class="input-group-text" id="description-label">Benchmark Description</span>
-                <input type="text" class="form-control" id="description" aria-describedby="description-label"
-                       placeholder="description" onkeyup="buildBenchmark()">
+            </div>           
+            <div class="col-12 col-lg-4">
+              <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="lomarDate" placeholder="a" target-field="lomarDate">
+                <label for="lomarDate">LOMAR Date</label>
               </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="input-group mb-2">
-                    <span class="input-group-text" id="northing-label">Northing</span>
-                    <input type="text" class="form-control" id="northing" aria-describedby="northing-label"
-                           placeholder="northing" onkeyup="buildBenchmark()">
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="input-group mb-2">
-                    <span class="input-group-text" id="easting-label">Easting</span>
-                    <input type="text" class="form-control" id="easting" aria-describedby="easting-label"
-                           placeholder="easting" onkeyup="buildBenchmark()">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="input-group mb-2">
-                    <span class="input-group-text" id="elevation-label">Elevation</span>
-                    <input type="text" class="form-control" id="elevation" aria-describedby="elevation-label"
-                           placeholder="elevation" onkeyup="buildBenchmark()">
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="input-group mb-2">
-                    <span class="input-group-text" id="Datum-label">Vertical Datum</span>
-                    <select class="form-select" id="Datum" onchange="setText(this, 'datum-value')">
-                      <option selected value="THE NORTH AMERICAN VERTICAL DATUM OF 1988">NAVD 88</option>
-                      <option value="THE NATIONAL GEODETIC VERTICAL DATUM OF 1929">NGVD 29</option>
-                      <option value="AN ARBITRARY VERTICAL DATUM">ARBITRARY</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <p>A generic note stating which vertical datum system the survey is tied to and which specific datum benchmark we tied to. 95% of all surveys completed today are in NAVD88, however you still have cities and jurisdictions that are operating in NGVD29. Very rarely will a arbitrary datum be established, which doesn't tie to any public system. The relevant code to reference for this is 5J-17.051(2)(a):</p>
-              <p><i>Vertical Accuracy: All surveying and mapping products <b>with elevation data</b> shall state the datum and a description of the control upon which the surveying and mapping products are based. ... Elevation data may be obtained on an assumed datum provided the base elevation of the assumed datum is obviously different than a publicly published datum and clearly noted.</i></p>
-              <p>Note that the requirement starts off by saying <i>with elevation data</i>, meaning if the survey does not have any vertical information (such as a mortgage survey), then we do not need to specify a vertical datum.</p>
-            </div>
-          </div>
-          <hr class="my-2 py-0">
-          <div class="row">
-            <h4 class="text-center" id="vertical-datum-methodology">Vertical Datum methodology</h4>
-            <div class="col-12 col-md-6 pb-2">
-              <div class="autocad-command mb-2" id="note-4">
-                THE VERTICAL CONTROL ESTABLISHED FOR THIS SURVEY IS BASED ON A CLOSED LEVEL LOOP, HAVING A CLOSURE ACCURACY WHICH MEETS OR EXCEEDS THAT REQUIRED BY THE STANDARDS OF PRACTICE SET FORTH IN RULE CHAPTER 5J-17, FLORIDA ADMINISTRATIVE CODE.
-              </div>
-              <button type="button" class="btn btn-primary" id="copy-4" onclick="CopyTextToClipboard('note-4')">Copy to clipboard</button>
-              <button type="button" class="btn btn-secondary" id="add-4" onclick="toggleNote(this, 'note-4')">Add to List</button>
-            </div>
-            <div class="d-none d-md-block col-md-6 pb-2">
-              <p>The vertical datum code has three sub-requirements in it. The &quot;Elevations&quot; section handles the first and third requirements. The middle requirement not handled in that said note requires documentation to prove we are accurate. The middle part of .051(2)(a) states the following:</p>
-              <p><i>The data shall be supported with documentation describing the vertical accuracy and the methodology used to determine accuracy.</i></p>
-              <p>This note is just a note to satisfy that second requirement.</p>
-            </div>
-          </div>
-          <hr class="my-2 py-0">
-          <div class="row">
-            <h4 class="text-center" id="horizontal-datum">Horizontal Datum Information</h4>
-            <div class="col-12 col-md-6 pb-2">
-              <div class="autocad-command mb-2" id="note-5">
-                COORDINATES SHOWN HEREON ARE <span style="color: var(--bs-orange)" id="hdatum-value">THE NORTH AMERICAN DATUM OF 1983, 2011 ADJUSTMENT, FLORIDA STATE PLANE, EAST ZONE</span> AND IS TIED TO <span style="color: var(--bs-orange)" id="hdatum-bm-value">the same benchmark referenced for the vertical datum</span>.
-              </div>
-              <button type="button" class="btn btn-primary" id="copy-5" onclick="CopyTextToClipboard('note-5')">Copy to clipboard</button>
-              <button type="button" class="btn btn-secondary" id="add-5" onclick="toggleNote(this, 'note-5')">Add to List</button>
-            </div>
-            <div class="d-none d-md-block col-md-6 pb-2">
-              <div class="input-group mb-2">
-                <span class="input-group-text" id="hdatum-label">Horizontal Datum</span>
-                <select class="form-select" id="hdatum" onchange="setText(this, 'hdatum-value')">
-                  <option selected
-                          value="THE NORTH AMERICAN DATUM OF 1983, 2011 ADJUSTMENT, FLORIDA STATE PLANE, EAST ZONE">
-                    NAD
-                    83 (FL EAST)</option>
-                  <option value="THE NORTH AMERICAN DATUM OF 1983, 2011 ADJUSTMENT, FLORIDA STATE PLANE, WEST ZONE">NAD
-                    83
-                    (FL
-                    WEST)</option>
-                  <option value="THE NORTH AMERICAN DATUM OF 1983, 2011 ADJUSTMENT, FLORIDA STATE PLANE, NORTH ZONE">NAD
-                    83
-                    (FL
-                    NORTH)</option>
-                  <option value="AN ARBITRARY HORIZONTAL DATUM">ARBITRARY</option>
-                </select>
-              </div>
-              <div class="input-group mb-2">
-                <span class="input-group-text" id="hdatum-label">Horizontal Datum Benchmark</span>
-                <select class="form-select" id="hdatum" onchange="setText(this, 'hdatum-bm-value')">
-                  <option selected value="the same benchmark referenced for the vertical datum">Same as vertical datum
-                  </option>
-                  <option value="!!DO NOT USE THIS, TO BE IMPLEMENTED!!">Another Benchmark</option>
-                  <option value="the benchmarks stated on the map of survey.">Local benchmarks</option>
-                </select>
-              </div>
-              <p>The vertical datum code has three sub-requirements in it. The &quot;Elevations&quot; section handles
-                the
-                first
-                and third requirements. The middle requirement not handled in that said note requires documentation to
-                prove
-                we
-                are accurate. The middle part of .051(2)(a) states the following:</p>
-              <p><i>The data shall be supported with documentation describing the vertical accuracy and the methodology
-                  used
-                  to
-                  determine accuracy.</i></p>
-              <p>This note is just a note to satisfy that second requirement.</p>
-            </div>
+            </div>           
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">View notes without pre-fill</button>
+          <button type="button" class="btn btn-primary" id="formConfirm">Pre-fill and View Notes</button>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png" height="16" class="rounded me-2" alt="...">
+        <strong class="me-auto" id="toast-header">Bootstrap</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toast-body"></div>
     </div>
   </div>
 </main>
 
-<!-- Note copied toast -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast border-success" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png" height="16px" class="rounded me-2" alt="...">
-      <strong class="me-auto">Success</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      the note was successfully copied to your clipboard.
-    </div>
-  </div>
-</div>
+<script>
+  document.getElementById("femaElevationForm").addEventListener("change",() => {
+    var femaField = document.getElementById("femaElevationForm");
+    document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText=femaField.value;
+  });
 
-<!-- Note list created toast -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="noteListToast" class="toast border-success" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png" height="16px" class="rounded me-2" alt="...">
-      <strong class="me-auto">Success</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      A note list was successfully compiled and copied to clipboard. It is also available in the browser's console.
-    </div>
-  </div>
-</div>
+  document.getElementById("showLomarFields").addEventListener("change", () => {
+    const status = document.getElementById("showLomarFields").checked;
+    if (status) {
+      document.getElementById("lomarInfo").removeAttribute("hidden");
+      return;
+    }
+    document.getElementById("lomarInfo").setAttribute("hidden", "");
+  })
+</script>
 
 </html>
