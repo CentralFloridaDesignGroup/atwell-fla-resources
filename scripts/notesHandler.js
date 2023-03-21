@@ -38,6 +38,16 @@ $(document).ready(function(){
         $(span).text(value);
       })
     });
+    $('select[target-field]').each(function(_, element) {
+      console.log($(element))
+      var target = $(element).attr('target-field');
+      var value = $(element).val();
+      console.debug("The target for '" + $(element).attr('id') + "' is '" + target + "', and has a value of '" + value + "'");
+      $('span[target="' + target + '"]').each(function(_, span) {
+        console.log($(span)[0]);
+        $(span).text(value);
+      })
+    });
     form.hide();
   });
 
