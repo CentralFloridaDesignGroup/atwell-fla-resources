@@ -1,18 +1,62 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
   var form = new bootstrap.Modal($("#modalForm")[0]);
+  var listItems = [];
+
   let searchParams = new URLSearchParams(window.location.search);
   if (!searchParams.has("skipform")) {
     form.show();
   }
 
-  $("a[use='copy']").on('click', function() {
+  $("a[use='copy']").on('click', function () {
     var strOut = $(this).parent().children("[use='note']").text().trim().toUpperCase();
     navigator.clipboard.writeText(strOut);
     $("#toast-header").text("NOTE COPIED");
     $("#toast-body").text("The selected note was successfully copied to your clipboard!");
     new bootstrap.Toast($("#liveToast")[0]).show();
     console.debug(strOut);
+  })
+
+  $("a[use='list']").on('click', function () {
+    var note = $(this).parent().parent().attr("id");
+    console.debug(note);
+    if (listItems.includes(note)) {
+      listItems.splice(listItems.indexOf(note), 1);
+      console.debug(listItems);
+      $(this).addClass("btn-secondary").removeClass("btn-success").text("Add to List");
+      if (listItems.length < 1) {
+        $("#listCreate").attr("disabled", "");
+      }
+      return;
+    }
+    listItems.push(note);
+    console.debug(listItems);
+    $(this).removeClass("btn-secondary").addClass("btn-success").text("Remove to List");
+    $("#listCreate").removeAttr("disabled");
+    return;
+  })
+
+  $("#listCreate").on('click', function () {
+    var strOut = "";
+    listItems.forEach(name => {
+      console.debug(name);
+      strOut += $('[id="' + name + '"]').find('[use="note"]').text().trim().toUpperCase() + "\n\n";
+    });
+    $("#toast-header").text("LIST GENERATED");
+    $("#toast-body").text("The list has been generated and copied to your clipboard. A version has also been copied to the browser's console.");
+    new bootstrap.Toast($("#liveToast")[0]).show();
+    console.debug(strOut.slice(0, -2));
+  })
+
+  $("a[filter]").on('click', function () {
+    // clear list
+    while (listItems.length > 0) {
+      $('[id="' + listItems[0] + '"]').find('[use="list"]').trigger('click');
+    }
+    if ($(this).attr("filter") == "__clear") {
+      return;
+    }
+    $("[filters='__all'],[filters*='" + $(this).attr("filter") + "']").siblings('[use="list"]').trigger('click');
   })
 
 
@@ -23,28 +67,34 @@ $(document).ready(function(){
 
 
 
-
-
-
-  $("#formConfirm").on('click', function() {
+  $("#formConfirm").on('click', function () {
     console.debug("Calling formConfirm.click()");
-    $('input:not([type="checkbox"])[target-field]').each(function(_, element) {
+    $('input:not([type="checkbox"],[type="date"])[target-field]').each(function (_, element) {
       console.log($(element))
       var target = $(element).attr('target-field');
       var value = $(element).val();
-      console.debug("The target for '" + $(element).attr('id') + "' is '" + target + "', and has a value of '" + value + "'");
-      $('span[target="' + target + '"]').each(function(_, span) {
-        console.log($(span)[0]);
+      //console.debug("The target for '" + $(element).attr('id') + "' is '" + target + "', and has a value of '" + value + "'");
+      $('span[target="' + target + '"]').each(function (_, span) {
+        //console.log($(span)[0]);
         $(span).text(value);
       })
     });
-    $('select[target-field]').each(function(_, element) {
+    $("input[type='date'][target-field]").each(function(_, element) {
+      var enteredDate = $(element).val().split("-");
+      var target = $(element).attr('target-field');
+      console.debug(enteredDate);
+      $('span[target="' + target + '"]').each(function (_, span) {
+        console.log($(span)[0]);
+        $(span).text(enteredDate[1] + "/" + enteredDate[2] + "/" + enteredDate[0]);
+      })
+    });
+    $('select[target-field]').each(function (_, element) {
       console.log($(element))
       var target = $(element).attr('target-field');
       var value = $(element).val();
-      console.debug("The target for '" + $(element).attr('id') + "' is '" + target + "', and has a value of '" + value + "'");
-      $('span[target="' + target + '"]').each(function(_, span) {
-        console.log($(span)[0]);
+      //console.debug("The target for '" + $(element).attr('id') + "' is '" + target + "', and has a value of '" + value + "'");
+      $('span[target="' + target + '"]').each(function (_, span) {
+        //console.log($(span)[0]);
         $(span).text(value);
       })
     });

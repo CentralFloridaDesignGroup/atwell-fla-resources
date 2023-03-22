@@ -23,12 +23,12 @@
 </head>
 
 <main>
-  <div class="container py-4">
+  <div class="container pt-2 pb-5">
     <div class="row" id="signature-requirement">
       <h4 class="text-center">Signature and Seal Requirement</h4>
       <div class="col-12 col-lg-6">
         <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note">
+        <p class="autocad-command" use="note" filters="__all">
           THIS MAP OF <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> survey is not valid unless it bears either the digital or physical signature and seal of the florida licensed surveyor identified below.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -44,7 +44,7 @@
       <h4 class="text-center">Vertical Datum</h4>
       <div class="col-12 col-lg-6">
         <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note">
+        <p class="autocad-command" use="note" filters="boundary">
           Elevations shown hereon are relative to <span target="verticalDatum" class="hl-orange">{Vertical Datum}</span> and is based on the &quot;Reference Benchmark&quot; stated hereon. The site benchmarks shown hereon were established using <span target="verticalDatumEstablishment" class="hl-orange">{Vertical datum establishment}</span> meeting or exceeding the standards of practice.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -61,7 +61,7 @@
       <h4 class="text-center">Horizontal Datum</h4>
       <div class="col-12 col-lg-6">
         <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note">
+        <p class="autocad-command" use="note" filters="alta">
           Northings and eastings shown hereon are based on <span target="horizontalDatum" class="hl-orange">{Horizontal Datum}</span> and is based on the &quot;Reference Benchmark&quot; stated hereon. The site benchmarks shown hereon were established using <span target="horizontalDatumEstablishment" class="hl-orange">{Horizontal datum establishment}</span> meeting or exceeding the standards of practice.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -78,7 +78,7 @@
       <h4 class="text-center">FEMA FIRM Information</h4>
       <div class="col-12 col-lg-6">
         <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note">
+        <p class="autocad-command" use="note" filters="sketch">
           THE LANDS SHOWN HEREON LIE IN<span target="femaZones"> <span class="hl-orange">{Flood zones}</span></span>, PER<span target="lomarNote"> <span class="hl-orange">{LOMAR DATA}</span></span> FLOOD INSURANCE RATE MAP (FIRM) COMMUNITY PANEL NO. <span target="femaFlood" class="hl-orange">{PANEL NUMBER}</span> FOR <span target="femaJurisdiction" class="hl-orange">{COMMUNITY NAME}</span>, EFFECTIVE <span target="femaEffectiveDate" class="hl-orange">{EFFECTIVE DATE}</span>. THE LIMITS OF SAID ZONES ARE GRAPHICALLY DEPICTED HEREON AS NEAR AS MAY BE SCALED FROM SAID MAP OR IMPORTED FROM GIS DATA PROVIDED BY FEMA. THE ABOVE STATEMENT IS FOR INFORMATION ONLY AND WE ASSUME NO LIABILITY FOR THE CORRECTNESS OF THE CITED MAP(S). IN ADDITION, THE ABOVE STATEMENT DOES NOT REPRESENT THE SURVEYOR’S OPINION OF THE PROBABILITY OF FLOODING.</span>
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -95,7 +95,24 @@
     </div>
 
     <div class="position-fixed bottom-0 end-0 sticky-bottom">
-      <button class="btn btn-primary d-print-none mb-4 me-4" data-bs-toggle="modal" data-bs-target="#modalForm">OPEN FORM</button>
+      <div class="btn-group dropup-center dropup mb-2">
+        <button type="button" class="btn btn-secondary" id="listCreate" disabled>
+          Generate List
+        </button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a filter="__clear" class="dropdown-item">Clear Selections</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a filter="boundary" class="dropdown-item">Select all Boundary Notes</a></li>
+          <li><a filter="alta" class="dropdown-item">Select all ALTA Notes</a></li>
+          <li><a filter="sketch" class="dropdown-item">Select all sketch &amp; Description Notes</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-primary d-print-none mb-2 me-4" data-bs-toggle="modal" data-bs-target="#modalForm">OPEN FORM</button>
     </div>
   </div>
 
@@ -103,152 +120,167 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-body container">
-          <div class="row">
-            <h5>General Information</h5>
-            <div class="col-12 col-lg-6 mb-2">
-              <div class="input-group">
-                <label for="surveyType" class="input-group-text">Type of Survey</label>
-                <datalist id="surveyTypes">
-                  <option value="Boundary">
-                  <option value="Boundary / Topographic">
-                  <option value="Boundary / Topographic / Tree">
-                  <option value="Boundary / Topographic / Wetland">
-                  <option value="Topographic">
-                  <option value="ALTA / NSPS Land Title">
-                  <option value="Special Purpose">
-                </datalist>
-                <input class="form-control" list="surveyTypes" id="surveyType" placeholder="Type to search..." target-field="surveyType">
-              </div>
-            </div>
-            <div class="col-12 col-lg-6 mb-2">
-              <div class="input-group">
-                <label for="surveyType" class="input-group-text">Purpose of Survey</label>
-                <textarea class="form-control" disabled id="specialPurposeField" id="purposeOfSurvey" target="surveyPurpose" rows="1"></textarea>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6 mb-2">
-              <div class="input-group">
-                <label for="verticalDatum" class="input-group-text">Vertical Datum</label>
-                <select class="form-select" id="verticalDatum" target-field="verticalDatum">
-                  <option value="the North American Vertical Datum of 1988 (NAVD88)">NAVD 88</option>
-                  <option value="the National Geodetic Vertical Datum of 1929 (NGVD29)">NGVD 29</option>
-                  <option value="2" hidden>Two</option>
-                  <option value="an arbitrary vertical datum">Arbitrary</option>
-                </select>
-                <label for="verticalDatumEstablishment" class="input-group-text">Establish Method</label>
-                <select class="form-select" id="verticalDatumEstablishment" target-field="verticalDatumEstablishment">
-                  <option value="a closed level loop utilizing the said reference benchmark,">Closed Level Loop</option>
-                  <option value="a robotic total station utilizing the stated reference benchmark,">Total Station</option>
-                  <option value="a real-time kinematic (RTK) GPS solution on both the reference benchmark and set site benchmarks,">RTK GPS</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6 mb-2">
-              <div class="input-group">
-                <label for="horizontalDatum" class="input-group-text">Horizontal Datum</label>
-                <select class="form-select" id="horizontalDatum" target-field="horizontalDatum">
-                  <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, East Zone">NAD83 (FL East)</option>
-                  <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, West Zone">NAD83 (FL West)</option>
-                  <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, North Zone">NAD83 (FL North)</option>
-                  <option value="an arbitrary horizontal datum">Arbitrary</option>
-                </select>
-                <label for="horizontalDatumEstablishment" class="input-group-text">Establish Method</label>
-                <select class="form-select" id="horizontalDatumEstablishment" target-field="horizontalDatumEstablishment">
-                  <option value="a real-time kinematic (RTK) GPS solution on both the reference benchmark and set site benchmarks,">RTK GPS</option>
-                  <option value="a robotic total station utilizing the stated reference benchmark,">Total Station</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <hr class="my-1 py-0">
-          <div>
+          <form id="notesForm" method="dialog">
             <div class="row">
-              <h5>FEMA FIRM Information</h5>
-              <div class="col-12 col-lg-4">
-                <div class="input-group mb-2">
-                  <label for="femaFlood" class="input-group-text">FEMA FIRM Panel</label>
-                  <input class="form-control" id="femaFlood" target-field="femaFlood">
+              <h5>General Information</h5>
+              <div class="col-12 col-lg-6 mb-2">
+                <div class="input-group">
+                  <label for="surveyType" class="input-group-text">Type of Survey</label>
+                  <datalist id="surveyTypes">
+                    <option value="Boundary">
+                    <option value="Boundary / Topographic">
+                    <option value="Boundary / Topographic / Tree">
+                    <option value="Boundary / Topographic / Wetland">
+                    <option value="Topographic">
+                    <option value="ALTA / NSPS Land Title">
+                    <option value="Special Purpose">
+                  </datalist>
+                  <input class="form-control" list="surveyTypes" id="surveyType" placeholder="Type to search..." target-field="surveyType">
                 </div>
               </div>
-              <div class="col-12 col-lg-4">
-                <div class="input-group mb-2">
-                  <label for="femaJurisdiction" class="input-group-text">Jurisdiction Name</label>
-                  <input class="form-control" id="femaJurisdiction" target-field="femaJurisdiction">
+              <div class="col-12 col-lg-6 mb-2">
+                <div class="input-group">
+                  <label for="surveyType" class="input-group-text">Purpose of Survey</label>
+                  <textarea class="form-control" disabled id="specialPurposeField" id="purposeOfSurvey" target="surveyPurpose" rows="1"></textarea>
                 </div>
               </div>
-              <div class="col-12 col-lg-4">
-                <div class="input-group mb-2">
-                  <label for="femaJurisdiction" class="input-group-text">Effective Date</label>
-                  <input type="date" class="form-control" id="femaEffectiveDate" target-field="femaEffectiveDate">
+              <div class="col-12 col-lg-6 mb-2">
+                <div class="input-group">
+                  <label for="verticalDatum" class="input-group-text">Vertical Datum</label>
+                  <select class="form-select" id="verticalDatum" target-field="verticalDatum">
+                    <option value="the North American Vertical Datum of 1988 (NAVD88)">NAVD 88</option>
+                    <option value="the National Geodetic Vertical Datum of 1929 (NGVD29)">NGVD 29</option>
+                    <option value="2" hidden>Two</option>
+                    <option value="an arbitrary vertical datum">Arbitrary</option>
+                  </select>
+                  <label for="verticalDatumEstablishment" class="input-group-text">Establish Method</label>
+                  <select class="form-select" id="verticalDatumEstablishment" target-field="verticalDatumEstablishment">
+                    <option value="a closed level loop utilizing the said reference benchmark,">Closed Level Loop</option>
+                    <option value="a robotic total station utilizing the stated reference benchmark,">Total Station</option>
+                    <option value="a real-time kinematic (RTK) GPS solution on both the reference benchmark and set site benchmarks,">RTK GPS</option>
+                  </select>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-lg-3 mb-2">
-                <input class="form-check-input" type="checkbox" value="" id="femaZoneX" checked>
-                <label class="form-check-label" for="femaZoneX"><b>Zone X (Unshaded)</b></label>
-                <p>Areas determined to be outside the 0.2% annual chance floodplain.</p>
-              </div>
-              <div class="col-12 col-lg-3 mb-2">
-                <input class="form-check-input" type="checkbox" value="" id="femaZoneX2">
-                <label class="form-check-label" for="femaZoneX2"><b>Zone X (Shaded)</b></label>
-                <p>Areas of 0.2% annual chance flood; areas of 1% annual chance flood with average depths of less than 1 foot or with drainage areas less than 1 square mile; and areas protected by levees from 1% annual chance flood.</p>
-              </div>
-              <div class="col-12 col-lg-3 mb-2">
-                <input class="form-check-input" type="checkbox" value="" id="femaZoneA">
-                <label class="form-check-label" for="femaZoneA"><b>Zone A</b></label>
-                <p>No base flood elevation determined.</p>
-              </div>
-              <div class="col-12 col-lg-3 mb-2">
-                <input class="form-check-input" type="checkbox" value="" id="femaZoneAE">
-                <label class="form-check-label mb-2" for="femaZoneAE"><b>Zone AE</b></label>
-                <p>Base flood elevation determined at <span target="femaElevation" class="hl-orange py-0 my-0">X</span> feet.</p>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" id="femaElevation">BFE Elevation</span>
-                  <input type="number" class="form-control" aria-label="BFE Elevation" aria-describedby="femaElevation"
-                         target-field="femaElevation" id="femaElevationForm">
-                </div>
-              </div>
-            </div>
-            <div class="row mb-2">
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="showLomarFields">
-                <label class="form-check-label" for="showLomarFields">This project has a LOMAR document associated with it.</label>
-              </div>
-            </div>
-            <div class="row" id="lomarInfo" hidden>
-              <div class="col-12 col-lg-4">
-                <div class="form-floating mb-2">
-                  <input class="form-control" id="lomarName" placeholder="a" target-field="lomarName">
-                  <label for="lomarName">LOMAR Document Name</label>
-                </div>
-              </div>
-              <div class="col-12 col-lg-4">
-                <div class="form-floating mb-2">
-                  <input class="form-control" id="lomarCaseNo" placeholder="a" target-field="lomarCaseNo">
-                  <label for="lomarCaseNo">LOMAR Case Number</label>
-                </div>
-              </div>
-              <div class="col-12 col-lg-4">
-                <div class="form-floating mb-2">
-                  <input type="date" class="form-control" id="lomarDate" placeholder="a" target-field="lomarDate">
-                  <label for="lomarDate">LOMAR Date</label>
+              <div class="col-12 col-lg-6 mb-2">
+                <div class="input-group">
+                  <label for="horizontalDatum" class="input-group-text">Horizontal Datum</label>
+                  <select class="form-select" id="horizontalDatum" target-field="horizontalDatum">
+                    <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, East Zone">NAD83 (FL East)</option>
+                    <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, West Zone">NAD83 (FL West)</option>
+                    <option value="the North American Datum of 1983 (NAD83), 2011 Adjustment, Florida State Plane, North Zone">NAD83 (FL North)</option>
+                    <option value="an arbitrary horizontal datum">Arbitrary</option>
+                  </select>
+                  <label for="horizontalDatumEstablishment" class="input-group-text">Establish Method</label>
+                  <select class="form-select" id="horizontalDatumEstablishment" target-field="horizontalDatumEstablishment">
+                    <option value="a real-time kinematic (RTK) GPS solution on both the reference benchmark and set site benchmarks,">RTK GPS</option>
+                    <option value="a robotic total station utilizing the stated reference benchmark,">Total Station</option>
+                  </select>
                 </div>
               </div>
             </div>
-          </div>
+            <hr class="my-1 py-0">
+            <div>
+              <div class="row">
+                <h5>FEMA FIRM Information</h5>
+                <div class="col-12 col-lg-4">
+                  <div class="input-group mb-2">
+                    <label for="femaFlood" class="input-group-text">FEMA FIRM Panel</label>
+                    <input class="form-control" id="femaFlood" target-field="femaFlood">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="input-group mb-2">
+                    <label for="femaJurisdiction" class="input-group-text">Jurisdiction Name</label>
+                    <input class="form-control" id="femaJurisdiction" target-field="femaJurisdiction">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="input-group mb-2">
+                    <label for="femaJurisdiction" class="input-group-text">Effective Date</label>
+                    <input type="date" class="form-control" id="femaEffectiveDate" target-field="femaEffectiveDate">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-lg-3 mb-2">
+                  <input class="form-check-input" type="checkbox" value="" id="femaZoneX" checked>
+                  <label class="form-check-label" for="femaZoneX"><b>Zone &quot;X&quot; (Unshaded)</b></label>
+                  <p>Areas determined to be outside the 0.2% annual chance floodplain</p>
+                </div>
+                <div class="col-12 col-lg-3 mb-2">
+                  <input class="form-check-input" type="checkbox" value="" id="femaZoneX2">
+                  <label class="form-check-label" for="femaZoneX2"><b>Zone &quot;X&quot; (Shaded)</b></label>
+                  <p>Areas of 0.2% annual chance flood; areas of 1% annual chance flood with average depths of less than 1 foot or with drainage areas less than 1 square mile; and areas protected by levees from 1% annual chance flood</p>
+                </div>
+                <div class="col-12 col-lg-3 mb-2">
+                  <input class="form-check-input" type="checkbox" value="" id="femaZoneA">
+                  <label class="form-check-label" for="femaZoneA"><b>Zone &quot;A&quot;</b></label>
+                  <p>No base flood elevation determined</p>
+                </div>
+                <div class="col-12 col-lg-3 mb-2">
+                  <input class="form-check-input" type="checkbox" value="" id="femaZoneAE">
+                  <label class="form-check-label" for="femaZoneAE"><b>Zone &quot;AE&quot;</b></label>
+                  <p>Base flood elevation determined at <span target="femaElevation" class="hl-orange py-0 my-0">X</span> feet</p>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="femaElevation">BFE Elevation</span>
+                    <input type="number" class="form-control" aria-label="BFE Elevation" aria-describedby="femaElevation"
+                           target-field="femaElevation" id="femaElevationForm">
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="showLomarFields">
+                  <label class="form-check-label" for="showLomarFields">This project has a LOMAR document associated with it.</label>
+                </div>
+              </div>
+              <div class="row" id="lomarInfo" hidden>
+                <div class="col-12 col-lg-4">
+                  <div class="form-floating mb-2">
+                    <input class="form-control" id="lomarName" placeholder="a" target-field="lomarName" value="Letter of Map Revision">
+                    <label for="lomarName">LOMAR Document Name</label>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="form-floating mb-2">
+                    <input class="form-control" id="lomarCaseNo" placeholder="a" target-field="lomarCaseNo">
+                    <label for="lomarCaseNo">LOMAR Case Number</label>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="form-floating mb-2">
+                    <input type="date" class="form-control" id="lomarDate" placeholder="a" target-field="lomarDate">
+                    <label for="lomarDate">LOMAR Date</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">View notes without pre-fill</button>
-          <button type="button" class="btn btn-primary" id="formConfirm">Pre-fill and View Notes</button>
+        <div class="modal-footer w-100">
+          <div class="container-fluid">
+            <div class="mx-auto">
+              <div class="row">
+                <div class="col-12 col-md-2 d-grid">
+                  <button type="button" class="btn btn-secondary d-block mb-2" onclick="document.getElementById('notesForm').reset();">Clear Form</button>
+                </div>
+                <div class="col-12 col-md-2 offset-md-6 d-grid mb-2">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">View without Pre-Fill</button>
+                </div>
+                <div class="col-12 col-md-2 d-grid mb-2">
+                  <button type="button" class="btn btn-primary float-end" id="formConfirm">Pre-fill and View</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="liveToast" class="toast border-success" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header border-success">
         <img src="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png" height="16" class="rounded me-2" alt="...">
         <strong class="me-auto" id="toast-header">Bootstrap</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -273,6 +305,27 @@
     document.getElementById("lomarInfo").setAttribute("hidden", "");
   });
 
+  document.getElementById("formConfirm").addEventListener("click", () => {
+    var strSet = [];
+    var checkedFemaZones = document.querySelectorAll("input[type='checkbox'][id*='fema']:checked");
+    checkedFemaZones.forEach(element => {
+      var name = element.nextElementSibling.innerText;
+      var description = element.nextElementSibling.nextElementSibling.innerText;
+      strSet.push(name + " described as " + description);
+    });
+    document.querySelector("[target='femaZones']").querySelector('span').innerText = strSet.join(', and ');
+
+    if (!document.getElementById("showLomarFields").checked) {
+      document.querySelector("[target='lomarNote']").querySelector('span').innerText = "The";
+    } else {
+      var lomrTitle = document.getElementById("lomarName").value;
+      var lomrCase = document.getElementById("lomarCaseNo").value;
+      var lomrDate = document.getElementById("lomarDate").value.split('-');
+      var strRet = 'THAT CERTAIN "' + lomrTitle + ',"; CASE NO: ' + lomrCase + ', DATED ' + lomrDate[1] + '/' + lomrDate[2] + '/' + lomrDate[0] + ', ACCOCIATED WITH the';
+      document.querySelector("[target='lomarNote']").querySelector('span').innerText = strRet;
+    }
+  })
+
   document.getElementById("surveyType").addEventListener("change", () => {
     var value = document.getElementById("surveyType").value.toUpperCase();
     if (value.includes("SPECIAL PURPOSE")) {
@@ -281,7 +334,7 @@
     }
     else {
       document.getElementById("specialPurposeField").setAttribute("disabled", "");
-      return;      
+      return;
     }
   })
 </script>
