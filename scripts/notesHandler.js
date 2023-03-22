@@ -8,6 +8,13 @@ $(document).ready(function () {
     form.show();
   }
 
+  $("a[use='link']").on('click', function() {
+    navigator.clipboard.writeText(window.location.href.split('?')[0] + "?skipform=true#" + $(this).parent().parent().attr('id'));
+    $("#toast-header").text("LINK COPIED");
+    $("#toast-body").text("The selected link was successfully copied to your clipboard!");
+    new bootstrap.Toast($("#liveToast")[0]).show();
+  })
+
   $("a[use='copy']").on('click', function () {
     var strOut = $(this).parent().children("[use='note']").text().trim().toUpperCase();
     navigator.clipboard.writeText(strOut);
@@ -42,10 +49,11 @@ $(document).ready(function () {
       console.debug(name);
       strOut += $('[id="' + name + '"]').find('[use="note"]').text().trim().toUpperCase() + "\n\n";
     });
+    navigator.clipboard.writeText(strOut.slice(0, -2));
+    console.info(strOut.slice(0, -2));
     $("#toast-header").text("LIST GENERATED");
     $("#toast-body").text("The list has been generated and copied to your clipboard. A version has also been copied to the browser's console.");
     new bootstrap.Toast($("#liveToast")[0]).show();
-    console.debug(strOut.slice(0, -2));
   })
 
   $("a[filter]").on('click', function () {
