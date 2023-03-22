@@ -34,12 +34,18 @@ $(document).ready(function () {
       if (listItems.length < 1) {
         $("#listCreate").attr("disabled", "");
       }
+      $("#toast-header").text("LIST UPDATED");
+      $("#toast-body").text("Your list now contains " + listItems.length + " notes.");
+      new bootstrap.Toast($("#liveToast")[0]).show();
       return;
     }
     listItems.push(note);
     console.debug(listItems);
     $(this).removeClass("btn-secondary").addClass("btn-success").text("Remove to List");
     $("#listCreate").removeAttr("disabled");
+    $("#toast-header").text("LIST UPDATED");
+    $("#toast-body").text("Your list now contains " + listItems.length + " notes.");
+    new bootstrap.Toast($("#liveToast")[0]).show();
     return;
   })
 
@@ -52,7 +58,7 @@ $(document).ready(function () {
     navigator.clipboard.writeText(strOut.slice(0, -2));
     console.info(strOut.slice(0, -2));
     $("#toast-header").text("LIST GENERATED");
-    $("#toast-body").text("The list has been generated and copied to your clipboard. A version has also been copied to the browser's console.");
+    $("#toast-body").text("The list of " + listItems.length + " notes have been generated and copied to your clipboard. A version has also been copied to the browser's console.");
     new bootstrap.Toast($("#liveToast")[0]).show();
   })
 
@@ -92,8 +98,13 @@ $(document).ready(function () {
       var target = $(element).attr('target-field');
       console.debug(enteredDate);
       $('span[target="' + target + '"]').each(function (_, span) {
-        console.log($(span)[0]);
-        $(span).text(enteredDate[1] + "/" + enteredDate[2] + "/" + enteredDate[0]);
+        //console.log($(span)[0]);
+        if ($(element).val().length != 10) {
+          $(span).text("[Not a valid date]");
+        }
+        else {
+          $(span).text(enteredDate[1] + "/" + enteredDate[2] + "/" + enteredDate[0]);
+        }
       })
     });
     $('select[target-field]').each(function (_, element) {

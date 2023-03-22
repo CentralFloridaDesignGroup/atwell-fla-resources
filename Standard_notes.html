@@ -25,11 +25,11 @@
 
 <main>
   <div class="container pt-2 pb-5">
+    <h3>Survey Notes</h3>
     <div class="row" id="signature-requirement">
       <h4 class="text-center">Signature and Seal Requirement <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
-        <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note" filters="__all">
+        <p class="autocad-command" use="note" filters="boundary alta">
           THIS MAP OF <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> survey is not valid unless it bears either the digital or physical signature and seal of the florida licensed surveyor identified below.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -44,8 +44,7 @@
     <div class="row" id="vertical-datum">
       <h4 class="text-center">Vertical Datum <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
-        <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note" filters="boundary">
+        <p class="autocad-command" use="note" filters="boundaryTopo altaTopo">
           Elevations shown hereon are relative to <span target="verticalDatum" class="hl-orange">{Vertical Datum}</span> and is based on the &quot;Reference Benchmark&quot; stated hereon. The site benchmarks shown hereon were established using <span target="verticalDatumEstablishment" class="hl-orange">{Vertical datum establishment}</span> meeting or exceeding the standards of practice.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -61,8 +60,7 @@
     <div class="row" id="horizontal-datum">
       <h4 class="text-center">Horizontal Datum <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
-        <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note" filters="alta">
+        <p class="autocad-command" use="note" filters="boundary alta">
           Northings and eastings shown hereon are based on <span target="horizontalDatum" class="hl-orange">{Horizontal Datum}</span> and is based on the &quot;Reference Benchmark&quot; stated hereon. The site benchmarks shown hereon were established using <span target="horizontalDatumEstablishment" class="hl-orange">{Horizontal datum establishment}</span> meeting or exceeding the standards of practice.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -78,8 +76,7 @@
     <div class="row" id="fema-firm-information">
       <h4 class="text-center">FEMA FIRM Information <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
-        <h5 hidden>Section sub-heading</h5>
-        <p class="autocad-command" use="note" filters="sketch">
+        <p class="autocad-command" use="note" filters="boundary boundaryTopo alta altaTopo">
           THE LANDS SHOWN HEREON LIE IN<span target="femaZones"> <span class="hl-orange">{Flood zones}</span></span>, PER<span target="lomarNote"> <span class="hl-orange">{LOMAR DATA}</span></span> FLOOD INSURANCE RATE MAP (FIRM) COMMUNITY PANEL NO. <span target="femaFlood" class="hl-orange">{PANEL NUMBER}</span> FOR <span target="femaJurisdiction" class="hl-orange">{COMMUNITY NAME}</span>, EFFECTIVE <span target="femaEffectiveDate" class="hl-orange">{EFFECTIVE DATE}</span>. THE LIMITS OF SAID ZONES ARE GRAPHICALLY DEPICTED HEREON AS NEAR AS MAY BE SCALED FROM SAID MAP OR IMPORTED FROM GIS DATA PROVIDED BY FEMA. THE ABOVE STATEMENT IS FOR INFORMATION ONLY AND WE ASSUME NO LIABILITY FOR THE CORRECTNESS OF THE CITED MAP(S). IN ADDITION, THE ABOVE STATEMENT DOES NOT REPRESENT THE SURVEYOR’S OPINION OF THE PROBABILITY OF FLOODING.</span>
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
@@ -92,6 +89,243 @@
         <p class="mb-1"><span class="hl-orange">PANEL NUMBER</span> is the FIRM panel number in 00000X0000X format.</p>
         <p class="mb-1"><span class="hl-orange">COMMUNITY NAME</span> is the name of the community, optionally with the community number.</p>
         <p><span class="hl-orange">EFFECTIVE DATE</span> is the date where the map was made effective <b>or revised</b>.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="legal-description">
+      <h4 class="text-center">Legal Description Source <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="__all">
+          The &quot;Legal Description&quot; stated hereon <span target="legalDescription" class="hl-orange">{Source}</span>.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>It is good practice to state where the legal description of land came from; whether from the public records, provided by the client, or through a title opinion.</p>
+        <p><span class="hl-orange">SOURCE</span> is the brief description of the source of information.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="abstraction">
+      <h4 class="text-center">Abstraction of Lands <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="__all">
+          NO ABSTRACT FOR RIGHTS-OF-WAY, EASEMENTS, OWNERSHIP OR OTHER INSTRUMENTS OF RECORD, EXCEPT FOR THOSE NOTED HEREON, HAVE BEEN PROVIDED TO THIS FIRM.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>Surveyors do not abstract lands for easements or other limitations on a piece of land. However, if we are provided that information by either the client or title company. If an easement is stated in the legal description, then it also falls under the category of this note.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="is-not-boundary">
+      <h4 class="text-center">Boundary Survey Constitution <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          THIS <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> DOES NOT CONSTITUTE A BOUNDARY SURVEY, AS SUCH.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>If a boundary survey was not performed for the survey (in the cases of as-builts, topos, and special purpose surveys), we need to state that on the survey. It clears the survey of having to conform to <a href="https://www.law.cornell.edu/regulations/florida/RSA-5J-17.051" target="_blank">5J-17.051, F.A.C.</a>, or the &quot;Boundary Survey Requirements&quot; rule.</p>
+        <p class="mb-1"><span class="badge bg-danger">DO NOT USE</span> Do not have this note if the survey being performed included boundary work and / or determination.</p>
+        <p><span class="hl-orange">SURVEY TYPE</span> The type of survey being performed.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="encroachments">
+      <h4 class="text-center">Encroachments <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="boundary boundaryTopo alta altaTopo">
+          UNLESS OTHERWISE NOTED OR SHOWN HEREON, THERE ARE NO APPARENT AND/OR UNOBSTRUCTED, ABOVE GROUND ENCROACHMENTS.  THE DISPOSITION OF ANY POTENTIAL ENCROACHING IMPROVEMENTS SHOWN IS BEYOND PROFESSIONAL PURVIEW AND SUBJECT TO LEGAL INTERPRETATION.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>An <b>encroachment</b> is any improvement to the land that belongs to a person that doesn't own the land. A common example is a fence that ends up on our property very slightly. This note states that, unless we specifically state something is encroaching, any argument stating that will be up to the court system to decide.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="alta-document">
+      <h4 class="text-center">ALTA Information <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="alta altaTopo">
+          WE HAVE EXAMINED THE FURNISHED COMMITMENT TO INSURE TITLE, COMMITMENT NO. <span target="DocumentNumber" class="hl-orange">{DOCUMENT NUMBER}</span>, PREPARED BY <span target="TitleCompany" class="hl-orange">{Title Company}</span>, EFFECTIVE DATE: <span target="ReportEffectiveDate" class="hl-orange">{Effective Date}</span>. THOSE INSTRUMENTS INCLUDED IN “SCHEDULE B, SECTION 2”, OF THE COMMITMENT HAVE BEEN EXAMINED AND ARE REFLECTED HEREON TO THE EXTENT THEY AFFECT THE LANDS SURVEYED.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>An <b>encroachment</b> is any improvement to the land that belongs to a person that doesn't own the land. A common example is a fence that ends up on our property very slightly. This note states that, unless we specifically state something is encroaching, any argument stating that will be up to the court system to decide.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="corner-offsets">
+      <h4 class="text-center">Corner Offsets <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="boundary boundaryTopo alta altaTopo">
+          NORTH-SOUTH AND EAST-WEST TIES TO RECOVERED MONUMENTATION NEAR VARIOUS LAND BOUNDARY CORNERS SHOWN HEREON ARE BY COORDINATE DIFFERENCE.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="scaling">
+      <h4 class="text-center">Scaling <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="__all">
+          ATTENTION IS DIRECTED TO THE FACT THAT THIS MAP MAY HAVE BEEN REDUCED IN SIZE BY REPRODUCTION. THIS MUST BE CONSIDERED WHEN OBTAINING SCALED DATA.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="block-size">
+      <h4 class="text-center">Block Size <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="__all">
+          SYMBOLS DEPICTED HEREON DO NOT REFLECT ACTUAL SIZE. Published dimensions precede map scaling.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="jurisdictional-authority">
+      <h4 class="text-center">Jurisdictional Authority <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="__all">
+          THE SURVEYED LANDS MAY BE SUBJECT TO JURISDICTIONAL ENTITIES.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <h3>Situational Survey Notes</h3>
+    <div class="row" id="wetlands">
+      <h4 class="text-center">Wetland Note <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          WETLANDS SHOWN HEREON WERE DETERMINED BY <span target="wetlandCompany" class="hl-orange">{Environmentalist}</span> ON <span target="wetlandDate" class="hl-orange">{REPORT DATE}</span> AND PROVIDED TO THIS FIRM BY THE CLIENT.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="thiccc-brush">
+      <h4 class="text-center">Thick Brush <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          THE SUBJECT PROPERTY IS OVERGROWN WITH VERY THICK UNDER BRUSH AND, AS SUCH, THE IMPROVEMENTS LOCATED ARE LIMITED TO THE EXTENT THE SURVEYOR BECAME AWARE OF THEM DURING “ON-SITE” FIELD VISITS ASSOCIATED WITH THIS SURVEY.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="client-instructions">
+      <h4 class="text-center">Delineation per Client <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          THE DELINEATION OF LANDS SHOWN HEREON IS AS PER THE CLIENT’S INSTRUCTIONS.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="monument-missing">
+      <h4 class="text-center">Missing Monument <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          DUE TO PHYSICAL LIMITATIONS, A MONUMENT CONFORMING TO CHAPTER 5J-17 FLORIDA ADMINISTRATIVE CODE, STANDARDS OF PRACTICE COULD NOT BE SET, THE LOCATION OF WHICH HAS BEEN NOTED ON THE MAP.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <!-- TODO: Add description for Corner Offsets -->
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <h3>Sketch &amp; Description Notes</h3>
+    <div class="row" id="sketch-description">
+      <h4 class="text-center">Sketch and Description Note <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="sketch">
+          This legal description is not valid if printed, or without the original signature and raised seal of the professional surveyor and mapper stated hereon.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>This note changes slightly to accommodate the fact that we did not prepare a survey, only a legal description (and a sketch).</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="compiled-from-record">
+      <h4 class="text-center">Compiled from Record <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="sketch">
+          DATA SHOWN HEREON WAS COMPILED FROM THE INSTRUMENT OF RECORD AND DOES NOT CONSTITUTE A FIELD SURVEY, AS SUCH
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>To be added.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
+    <div class="row" id="sketch-field-status">
+      <h4 class="text-center">Sketch Field Status <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="sketch">
+          THIS SKETCH DOES NOT REPRESENT A FIELD SURVEY, AS SUCH.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>To be added.</p>
       </div>
     </div>
 
@@ -124,7 +358,7 @@
           <form id="notesForm" method="dialog">
             <div class="row">
               <h5>General Information</h5>
-              <div class="col-12 col-lg-6 mb-2">
+              <div class="col-12 col-lg-4 mb-2">
                 <div class="input-group">
                   <label for="surveyType" class="input-group-text">Type of Survey</label>
                   <datalist id="surveyTypes">
@@ -139,10 +373,21 @@
                   <input class="form-control" list="surveyTypes" id="surveyType" placeholder="Type to search..." target-field="surveyType">
                 </div>
               </div>
-              <div class="col-12 col-lg-6 mb-2">
+              <div class="col-12 col-lg-4 mb-2">
                 <div class="input-group">
                   <label for="surveyType" class="input-group-text">Purpose of Survey</label>
                   <textarea class="form-control" disabled id="specialPurposeField" id="purposeOfSurvey" target="surveyPurpose" rows="1"></textarea>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 mb-2">
+                <div class="input-group">
+                  <label for="legalDescription" class="input-group-text">Legal Source</label>
+                  <select class="form-select" id="legalDescription" target-field="legalDescription">
+                    <option value="was obtained from the last public deed listed on the property appraiser's website">Property Appraiser Website</option>
+                    <option value="was provided by the Client">Provided by Client</option>
+                    <option value="was provided in the stated title document">Title Document</option>
+                    <option value="was prepared by the Surveyor at the owner's request">Prepared by Surveyor</option>
+                  </select>
                 </div>
               </div>
               <div class="col-12 col-lg-6 mb-2">
@@ -176,6 +421,18 @@
                     <option value="a real-time kinematic (RTK) GPS solution on both the reference benchmark and set site benchmarks,">RTK GPS</option>
                     <option value="a robotic total station utilizing the stated reference benchmark,">Total Station</option>
                   </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="input-group mb-2">
+                  <label for="wetlandCompany" class="input-group-text">Enviornmentalist</label>
+                  <input class="form-control" id="wetlandCompany" target-field="wetlandCompany">
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="input-group mb-2">
+                  <label for="wetlandDate" class="input-group-text">Report Date</label>
+                  <input type="date" class="form-control" id="wetlandDate" target-field="wetlandDate">
                 </div>
               </div>
             </div>
@@ -261,11 +518,8 @@
               <h5>ALTA Survey Information</h5>
               <div class="col-12 col-lg-4 mb-2">
                 <div class="input-group">
-                  <label for="documentType" class="input-group-text">Document Type</label>
-                  <select class="form-select" id="documentType" target-field="documentType">
-                    <option>Title Opinion</option>
-                    <option>Property Information Report</option>
-                  </select>
+                  <label for="DocumentNumber" class="input-group-text">Document Number</label>
+                  <input class="form-control" id="DocumentNumber" target-field="DocumentNumber">
                 </div>
               </div>
               <div class="col-12 col-lg-4 mb-2">
