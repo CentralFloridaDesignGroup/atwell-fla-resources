@@ -141,7 +141,7 @@
       <h4 class="text-center">Encroachments <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
         <p class="autocad-command" use="note" filters="boundary boundaryTopo alta altaTopo">
-          UNLESS OTHERWISE NOTED OR SHOWN HEREON, THERE ARE NO APPARENT AND/OR UNOBSTRUCTED, ABOVE GROUND ENCROACHMENTS.  THE DISPOSITION OF ANY POTENTIAL ENCROACHING IMPROVEMENTS SHOWN IS BEYOND PROFESSIONAL PURVIEW AND SUBJECT TO LEGAL INTERPRETATION.
+          UNLESS OTHERWISE NOTED OR SHOWN HEREON, THERE ARE NO APPARENT AND/OR UNOBSTRUCTED, ABOVE GROUND ENCROACHMENTS. THE DISPOSITION OF ANY POTENTIAL ENCROACHING IMPROVEMENTS SHOWN IS BEYOND PROFESSIONAL PURVIEW AND SUBJECT TO LEGAL INTERPRETATION.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
         <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
@@ -383,7 +383,7 @@
                 <div class="input-group">
                   <label for="legalDescription" class="input-group-text">Legal Source</label>
                   <select class="form-select" id="legalDescription" target-field="legalDescription">
-                    <option value="was obtained from the last public deed listed on the property appraiser's website">Property Appraiser Website</option>
+                    <option value="was obtained from the latest public deed listed on the property appraiser's website">Property Appraiser Website</option>
                     <option value="was provided by the Client">Provided by Client</option>
                     <option value="was provided in the stated title document">Title Document</option>
                     <option value="was prepared by the Surveyor at the owner's request">Prepared by Surveyor</option>
@@ -423,18 +423,6 @@
                   </select>
                 </div>
               </div>
-              <div class="col-12 col-lg-6">
-                <div class="input-group mb-2">
-                  <label for="wetlandCompany" class="input-group-text">Enviornmentalist</label>
-                  <input class="form-control" id="wetlandCompany" target-field="wetlandCompany">
-                </div>
-              </div>
-              <div class="col-12 col-lg-6">
-                <div class="input-group mb-2">
-                  <label for="wetlandDate" class="input-group-text">Report Date</label>
-                  <input type="date" class="form-control" id="wetlandDate" target-field="wetlandDate">
-                </div>
-              </div>
             </div>
             <hr class="my-1 py-0">
             <div>
@@ -443,7 +431,7 @@
                 <div class="col-12 col-lg-4">
                   <div class="input-group mb-2">
                     <label for="femaFlood" class="input-group-text">FEMA FIRM Panel</label>
-                    <input class="form-control" id="femaFlood" target-field="femaFlood">
+                    <input class="form-control" id="femaFlood" target-field="femaFlood" placeholder="00000X0000X">
                   </div>
                 </div>
                 <div class="col-12 col-lg-4">
@@ -458,8 +446,6 @@
                     <input type="date" class="form-control" id="femaEffectiveDate" target-field="femaEffectiveDate">
                   </div>
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-12 col-lg-3 mb-2">
                   <input class="form-check-input" type="checkbox" value="" id="femaZoneX" checked>
                   <label class="form-check-label" for="femaZoneX"><b>Zone &quot;X&quot; (Unshaded)</b></label>
@@ -485,24 +471,26 @@
                            target-field="femaElevation" id="femaElevationForm">
                   </div>
                 </div>
+                <div class="col-12">
+                  <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" role="switch" id="showLomarFields">
+                    <label class="form-check-label" for="showLomarFields">This project has a Letter Of Map Revision (LOMR) document associated with it.</label>
+                  </div>
+                </div>
               </div>
               <div class="row mb-2">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="showLomarFields">
-                  <label class="form-check-label" for="showLomarFields">This project has a Letter Of Map Revision (LOMR) document associated with it.</label>
-                </div>
               </div>
               <div class="row" id="lomarInfo" hidden>
                 <div class="col-12 col-lg-6">
                   <div class="input-group mb-2">
                     <label for="lomarName" class="input-group-text">LOMR Document Name</label>
-                    <input class="form-control" id="lomarName" placeholder="a" target-field="lomarName" value="Letter of Map Revision">
+                    <input class="form-control" id="lomarName" placeholder="" target-field="lomarName" value="Letter of Map Revision">
                   </div>
                 </div>
                 <div class="col-12 col-lg-3">
                   <div class="input-group mb-2">
                     <label for="lomarCaseNo" class="input-group-text">Case Number</label>
-                    <input class="form-control" id="lomarCaseNo" placeholder="a" target-field="lomarCaseNo">
+                    <input class="form-control" id="lomarCaseNo" placeholder="" target-field="lomarCaseNo">
                   </div>
                 </div>
                 <div class="col-12 col-lg-3">
@@ -513,29 +501,57 @@
                 </div>
               </div>
             </div>
-            <div class="row" id="AltaInformation" hidden>
-              <hr class="my-1 py-0">
-              <h5>ALTA Survey Information</h5>
-              <div class="col-12 col-lg-4 mb-2">
-                <div class="input-group">
-                  <label for="DocumentNumber" class="input-group-text">Document Number</label>
-                  <input class="form-control" id="DocumentNumber" target-field="DocumentNumber">
+            <hr class="my-1 py-0">
+            <div>
+              <h5>Title Commitment</h5>
+              <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="showTitleCommitInfo">
+                <label class="form-check-label" for="showTitleCommitInfo">This project has a title opinion / letter associated with it.</label>
+              </div>
+              <div class="row" id="TitleCommitInfo" hidden> 
+                <div class="col-12 col-lg-4 mb-2">
+                  <div class="input-group">
+                    <label for="DocumentNumber" class="input-group-text">Document Number</label>
+                    <input class="form-control" id="DocumentNumber" target-field="DocumentNumber">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 mb-2">
+                  <div class="input-group">
+                    <label for="TitleCompany" class="input-group-text">Title Company</label>
+                    <datalist id="TitleCompanies">
+                      <option>First American Title Insurance Company</option>
+                      <option>Old Republic Title Insurance Company</option>
+                    </datalist>
+                    <input class="form-control" list="TitleCompanies" id="TitleCompany" placeholder="Type to search..." target-field="TitleCompany">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="input-group mb-2">
+                    <label for="ReportEffectiveDate" class="input-group-text">Effective Date</label>
+                    <input type="date" class="form-control" id="ReportEffectiveDate" target-field="ReportEffectiveDate">
+                  </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 mb-2">
-                <div class="input-group">
-                  <label for="TitleCompany" class="input-group-text">Title Company</label>
-                  <datalist id="TitleCompanies">
-                    <option>First American Title Insurance Company</option>
-                    <option>Old Republic Title Insurance Company</option>
-                  </datalist>
-                  <input class="form-control" list="TitleCompanies" id="TitleCompany" placeholder="Type to search..." target-field="TitleCompany">
-                </div>
+            </div>
+            <hr class="my-1 py-0">
+            <div>
+              <h5>Wetlands</h5>
+              <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="showWetlandInfo">
+                <label class="form-check-label" for="showWetlandInfo">This project wetlands located by an Enviornmentalist.</label>
               </div>
-              <div class="col-12 col-lg-4">
-                <div class="input-group mb-2">
-                  <label for="ReportEffectiveDate" class="input-group-text">Effective Date</label>
-                  <input type="date" class="form-control" id="ReportEffectiveDate" target-field="ReportEffectiveDate">
+              <div id="WetlandInfo" class="row" hidden>
+                <div class="col-12 col-lg-6">
+                  <div class="input-group mb-2">
+                    <label for="wetlandCompany" class="input-group-text">Enviornmentalist</label>
+                    <input class="form-control" id="wetlandCompany" target-field="wetlandCompany">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="input-group mb-2">
+                    <label for="wetlandDate" class="input-group-text">Report Date</label>
+                    <input type="date" class="form-control" id="wetlandDate" target-field="wetlandDate">
+                  </div>
                 </div>
               </div>
             </div>
@@ -608,6 +624,24 @@
       return;
     }
     document.getElementById("lomarInfo").setAttribute("hidden", "");
+  });
+
+  document.getElementById("showTitleCommitInfo").addEventListener("change", () => {
+    const status = document.getElementById("showTitleCommitInfo").checked;
+    if (status) {
+      document.getElementById("TitleCommitInfo").removeAttribute("hidden");
+      return;
+    }
+    document.getElementById("TitleCommitInfo").setAttribute("hidden", "");
+  });
+
+  document.getElementById("showWetlandInfo").addEventListener("change", () => {
+    const status = document.getElementById("showWetlandInfo").checked;
+    if (status) {
+      document.getElementById("WetlandInfo").removeAttribute("hidden");
+      return;
+    }
+    document.getElementById("WetlandInfo").setAttribute("hidden", "");
   });
 
   document.getElementById("surveyType").addEventListener("change", () => {
