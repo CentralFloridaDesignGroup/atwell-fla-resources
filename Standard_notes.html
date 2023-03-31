@@ -41,6 +41,20 @@
       </div>
     </div>
     <hr class="hr-1 py-0">
+    <div class="row" id="specific-purpose-note">
+      <h4 class="text-center">Purpose of Survey <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="">
+          The purpose of this <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> survey is to <span target="surveyPurpose" class="hl-orange">{Survey Purpose}</span>.
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>To be added</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
     <div class="row" id="vertical-datum">
       <h4 class="text-center">Vertical Datum <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
@@ -368,7 +382,7 @@
                     <option value="Boundary, Topographic & Wetland">
                     <option value="Topographic">
                     <option value="ALTA / NSPS Land Title">
-                    <option value="Special Purpose">
+                    <option value="Specific Purpose">
                   </datalist>
                   <input class="form-control" list="surveyTypes" id="surveyType" placeholder="Type to search..." target-field="surveyType">
                 </div>
@@ -376,7 +390,7 @@
               <div class="col-12 col-lg-4 mb-2">
                 <div class="input-group">
                   <label for="surveyType" class="input-group-text">Purpose of Survey</label>
-                  <textarea class="form-control" disabled id="specialPurposeField" id="purposeOfSurvey" target="surveyPurpose" rows="1"></textarea>
+                  <textarea class="form-control" disabled id="specialPurposeField" id="purposeOfSurvey" target-field="surveyPurpose" rows="1"></textarea>
                 </div>
               </div>
               <div class="col-12 col-lg-4 mb-2">
@@ -646,7 +660,7 @@
 
   document.getElementById("surveyType").addEventListener("change", () => {
     var value = document.getElementById("surveyType").value.toUpperCase();
-    if (value.includes("SPECIAL PURPOSE")) {
+    if (value.includes("SPECIFIC PURPOSE")) {
       document.getElementById("specialPurposeField").removeAttribute("disabled");
     }
     else {
