@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <entry name="Florida" path="/" />
-    <entry name="Georgia" path="/" />
-    <entry name="South Carolina" path="/" />
+    <entry name="Florida" path="Hi Manny" />
+    <entry name="Georgia" path="This is so cool!" />
+    <entry name="South Carolina" path="It's dynamic, I can do anything" />
 </root>
