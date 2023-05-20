@@ -1,3 +1,5 @@
-<stateNotes>
-    <Note name="Florida">https://speed.hetzner.de/100MB.bin</Note>
-</stateNotes>
+<?xml version="1.1" encoding="UTF-8"?>
+<root>
+    <entry name="Florida" path="/" />
+    <entry name="Georgia" path="/" />
+</root>
