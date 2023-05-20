@@ -5,8 +5,35 @@
     </autocad>
     <offices>
         <office>
+            <displayname>Atlanta</displayname>
+            <officecode>GAATL</officecode>
+            <address>2600 Maitland Center Blvd</address>
+            <address2>Ste 2600</address2>
+            <city>Maitland</city>
+            <state>FL</state>
+            <zip>32751</zip>
+        </office>
+        <office>
+            <displayname>Orlando - Magnolia</displayname>
+            <officecode>FLORL</officecode>
+            <address>2600 Maitland Center Blvd</address>
+            <address2>Ste 2600</address2>
+            <city>Maitland</city>
+            <state>FL</state>
+            <zip>32751</zip>
+        </office>
+        <office>
             <displayname>Orlando - Maitland</displayname>
             <officecode>FLORL1</officecode>
+            <address>2600 Maitland Center Blvd</address>
+            <address2>Ste 2600</address2>
+            <city>Maitland</city>
+            <state>FL</state>
+            <zip>32751</zip>
+        </office>
+        <office>
+            <displayname>Sarasota</displayname>
+            <officecode>FLSAR</officecode>
             <address>2600 Maitland Center Blvd</address>
             <address2>Ste 2600</address2>
             <city>Maitland</city>
