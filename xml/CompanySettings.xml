@@ -41,4 +41,9 @@
             <zip>32751</zip>
         </office>
     </offices>
+    <reports>
+        <volume>
+            <report displayname="Main Template">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
+        </volume>
+    </reports>
 </settings>
