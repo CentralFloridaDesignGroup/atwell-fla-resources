@@ -43,7 +43,8 @@
     </offices>
     <reports>
         <volume>
-            <report displayname="Main Template">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
+            <report displayname="Main Template" default="true">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
+            <report displayname="AutoCAD Template">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
         </volume>
     </reports>
 </settings>
