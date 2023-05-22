@@ -5,22 +5,22 @@
     </autocad>
     <offices>
         <office>
-            <displayname>Atlanta</displayname>
-            <officecode>GAATL</officecode>
-            <address>2600 Maitland Center Blvd</address>
-            <address2>Ste 2600</address2>
-            <city>Maitland</city>
-            <state>FL</state>
-            <zip>32751</zip>
+            <displayname>Marietta</displayname>
+            <officecode>GAMAR</officecode>
+            <address>1800 Parkway Place</address>
+            <address2>Ste 700</address2>
+            <city>Marietta</city>
+            <state>GA</state>
+            <zip>30067</zip>
         </office>
         <office>
             <displayname>Orlando - Magnolia</displayname>
             <officecode>FLORL</officecode>
-            <address>2600 Maitland Center Blvd</address>
-            <address2>Ste 2600</address2>
-            <city>Maitland</city>
+            <address>111 N. Magnolia Ave</address>
+            <address2>Ste 1350</address2>
+            <city>Orlando</city>
             <state>FL</state>
-            <zip>32751</zip>
+            <zip>32801</zip>
         </office>
         <office>
             <displayname>Orlando - Maitland</displayname>
@@ -34,11 +34,11 @@
         <office>
             <displayname>Sarasota</displayname>
             <officecode>FLSAR</officecode>
-            <address>2600 Maitland Center Blvd</address>
-            <address2>Ste 2600</address2>
-            <city>Maitland</city>
+            <address>8725 Pendery Place</address>
+            <address2>Ste 101</address2>
+            <city>Bradenton</city>
             <state>FL</state>
-            <zip>32751</zip>
+            <zip>34201</zip>
         </office>
     </offices>
     <reports>
