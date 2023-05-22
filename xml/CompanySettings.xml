@@ -44,7 +44,7 @@
     <reports>
         <volume>
             <report displayname="Main Template" default="true">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
-            <report displayname="AutoCAD Template">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
+            <report displayname="Variables Report">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/cut-fill-variables.html</report>
         </volume>
     </reports>
 </settings>

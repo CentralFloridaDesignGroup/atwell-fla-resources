@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Test Document @General.Date@ @General.Time@</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://www.atwell-group.com/wp-content/themes/atwell-theme/favicon.png">
+
+  <!--Bootstrap 5-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<main>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h3>Volume Report Test Document</h3>
+        <h4>General Variables</h4>
+        <p class="py-1 my-0"><b>Project.Name</b> @Project.Name@</p>
+        <p class="py-1 my-0"><b>General.Date</b> @General.Date@</p>
+        <p class="py-1 my-0"><b>General.Time</b> @General.Time@</p>
+        <p class="py-1 my-0"><b>General.FileName</b> @General.FileName@</p>
+        <p class="py-1 my-0"><b>Company.Name</b> @Company.Name@</p>
+        <p class="py-1 my-0"><b>Company.OfficeName</b> @Company.OfficeName@</p>
+        <p class="py-1 my-0"><b>Company.OfficeCode</b> @Company.OfficeCode@</p>
+        <p class="py-1 my-0"><b>Company.Address</b> @Company.Address@</p>
+        <p class="py-1 my-0"><b>Company.Address2</b> @Company.Address2@</p>
+        <p class="py-1 my-0"><b>Company.City</b> @Company.City@</p>
+        <p class="py-1 my-0"><b>Company.State</b> @Company.State@</p>
+        <p class="py-1 my-0"><b>Company.Zip</b> @Company.Zip@</p>
+        <p class="py-1 my-0"><b>Station.Name</b> @Station.Name@</p>
+        <p class="py-1 my-0"><b>Station.Initials</b> @Station.Initials@</p>
+        <p class="py-1 my-0"><b>Station.MachineName</b> @Station.MachineName@</p>
+        <p class="py-1 my-0"><b>Station.LoggedInUser</b> @Station.LoggedInUser@</p>
+      </div>
+      <h4>Per Volume Variables</h4>
+      <repeat every="Volume">
+        <hr>
+        <div class="row">
+          <p class="py-1 my-0"><b>Volume.Name</b> @Volume.Name@</p>
+          <p class="py-1 my-0"><b>Volume.Area</b> @Volume.Area@</p>
+          <p class="py-1 my-0"><b>Volume.BaseSurface</b> @Volume.BaseSurface@</p>
+          <p class="py-1 my-0"><b>Volume.ComparisonSurface</b> @Volume.ComparisonSurface@</p>
+          <p class="py-1 my-0"><b>Volume.Cut</b> @Volume.Cut@</p>
+          <p class="py-1 my-0"><b>Volume.Fill</b> @Volume.Fill@</p>
+          <p class="py-1 my-0"><b>Volume.AdjustedCut</b> @Volume.AdjustedCut@</p>
+          <p class="py-1 my-0"><b>Volume.AdjustedFill</b> @Volume.AdjustedFill@</p>
+          <p class="py-1 my-0"><b>Volume.Net</b> @Volume.Net@</p>
+          <p class="py-1 my-0"><b>Volume.AdjustedNet</b> @Volume.AdjustedNet@</p>
+          <p class="py-1 my-0"><b>Volume.CutFactor</b> @Volume.CutFactor@</p>
+          <p class="py-1 my-0"><b>Volume.FillFactor</b> @Volume.FillFactor@</p>
+          <p class="py-1 my-0"><b>Volume.CutPercent</b> @Volume.CutPercent@%</p>
+          <p class="py-1 my-0"><b>Volume.CutAdjustedPercent</b> @Volume.CutAdjustedPercent@%</p>
+          <p class="py-1 my-0"><b>Volume.FillPercent</b> @Volume.FillPercent@%</p>
+          <p class="py-1 my-0"><b>Volume.FillAdjustedPercent</b> @Volume.FillAdjustedPercent@%</p>
+          <p class="py-1 my-0"><b>Volume.MinEasting</b> @Volume.MinEasting@</p>
+          <p class="py-1 my-0"><b>Volume.MinNorthing</b> @Volume.MinNorthing@</p>
+          <p class="py-1 my-0"><b>Volume.MinElevation</b> @Volume.MinElevation@</p>
+          <p class="py-1 my-0"><b>Volume.MaxEasting</b> @Volume.MaxEasting@</p>
+          <p class="py-1 my-0"><b>Volume.MaxNorthing</b> @Volume.MaxNorthing@</p>
+          <p class="py-1 my-0"><b>Volume.MaxElevation</b> @Volume.MaxElevation@</p>
+          <p class="py-1 my-0"><b>Volume.MeanElevation</b> @Volume.MeanElevation@</p>
+          <p class="py-1 my-0"><b>Volume.Points</b> @Volume.Points@</p>
+        </div>
+      </repeat>
+      <hr>
+      <h4>Per Volume Variables</h4>
+      <p class="py-1 my-0"><b>Volume.TotalCut</b> @Volume.TotalCut@</p>
+      <p class="py-1 my-0"><b>Volume.TotalCutAdjusted</b> @Volume.TotalCutAdjusted@</p>
+      <p class="py-1 my-0"><b>Volume.TotalFill</b> @Volume.TotalFill@</p>
+      <p class="py-1 my-0"><b>Volume.TotalFillAdjusted</b> @Volume.TotalFillAdjusted@</p>
+      <p class="py-1 my-0"><b>Volume.TotalNet</b> @Volume.TotalNet@</p>
+      <p class="py-1 my-0"><b>Volume.TotalNetAdjusted</b> @Volume.TotalNetAdjusted@</p>
+      <p class="py-1 my-0"><b>Volume.TotalCutPercent</b> @Volume.TotalCutPercent@%</p>
+      <p class="py-1 my-0"><b>Volume.TotalCutAdjustedPercent</b> @Volume.TotalCutAdjustedPercent@%</p>
+      <p class="py-1 my-0"><b>Volume.TotalFillPercent</b> @Volume.TotalFillPercent@%</p>
+      <p class="py-1 my-0"><b>Volume.TotalFillAdjustedPercent</b> @Volume.TotalFillAdjustedPercent@%</p>
+    </div>
+  </div>
+</main>
+
+</html>
