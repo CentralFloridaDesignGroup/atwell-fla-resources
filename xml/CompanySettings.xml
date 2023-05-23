@@ -43,7 +43,7 @@
     </offices>
     <reports>
         <volume>
-            <report displayname="Main Template" default="true">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/Volume-Report.html</report>
+            <report displayname="Cut/Fill Report (Full)" default="true">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/volume-report-full.html</report>
             <report displayname="Variables Report">https://centralfloridadesigngroup.github.io/atwell-fla-resources/xml/reports/cut-fill-variables.html</report>
         </volume>
     </reports>
