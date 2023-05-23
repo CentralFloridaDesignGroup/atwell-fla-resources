@@ -1,0 +1,118 @@
+<HTML>
+
+<BODY>
+  <p>
+  <table style="BACKGROUND-COLOR:#000000;WIDTH:100%;BORDER-COLLAPSE:collapse;HEIGHT:40px" border="0" cellSpacing="2" borderColor="#000000" cellPadding="3">
+    <tbody>
+      <tr>
+        <td style="WIDTH:100%">
+          <h1 style="TEXT-ALIGN: center">
+            <font color="#FFFFFF">Cut/Fill Report</font>
+          </h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+  <p style="TEXT-ALIGN:left">
+  <table style="BACKGROUND-COLOR:#ffffff;WIDTH:100%;BORDER-COLLAPSE:collapse" border="0" cellSpacing="2" borderColor="#000000" cellPadding="3">
+    <tbody>
+      <tr>
+        <td style="WIDTH:20%"><b>Generated:</b></td>
+        <td style="WIDTH:80%">@General.Date@ @General.Time@</td>
+      </tr>
+      <tr>
+        <td style="WIDTH:20%"><b>By user:</b></td>
+        <td style="WIDTH:80%">@Station.Initials@</td>
+      </tr>
+      <tr>
+        <td style="WIDTH:20%"><b>Drawing:</b></td>
+        <td style="WIDTH:80%">@General.FileName@</td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+  <p style="TEXT-ALIGN: left"> </p>
+  <p style="TEXT-ALIGN: left">
+  <table style="BACKGROUND-COLOR:#ffffff;WIDTH:100%;BORDER-COLLAPSE:collapse" border="1" cellSpacing="2" borderColor="#000000" cellPadding="8">
+    <tbody>
+      <tr style="HEIGHT:45px">
+        <td style="BACKGROUND-COLOR:#000000;WIDTH:100%" colSpan="8">
+          <font color="#FFFFFF"><b> Volume Summary</b></font>
+        </td>
+      </tr>
+      <tr style="HEIGHT:45px">
+        <td style="WIDTH:10%" align="middle"><b>Name</b></td>
+        <td style="WIDTH:10%" align="middle"><b>Type</b></td>
+        <td style="WIDTH:10%" align="middle"><b>Cut Factor</b></td>
+        <td style="WIDTH:10%" align="middle"><b>Fill Factor</b></td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>2d Area</b></p>
+          <p style="LINE-HEIGHT:0">(Sq. Ft.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Cut</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Fill</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Net</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+      </tr>
+      <repeat every="Volume">
+        <tr style="HEIGHT:30px">
+          <td>@Volume.Name@</td>
+          <td>full</td>
+          <td>@Volume.CutFactor@</td>
+          <td>@Volume.FillFactor@</td>
+          <td>@Volume.Area@</td>
+          <td>@Volume.AdjustedCut@</td>
+          <td>@Volume.AdjustedFill@</td>
+          <td>@Volume.AdjustedNet@</td>
+        </tr>
+      </repeat>
+    </tbody>
+  </table>
+  </p>
+  <table style="BACKGROUND-COLOR:#ffffff;WIDTH:100%;BORDER-COLLAPSE:collapse" border="1" cellSpacing="2" borderColor="#000000" cellPadding="8">
+    <tbody>
+      <tr style="HEIGHT:45px">
+        <td style="BACKGROUND-COLOR:#000000;WIDTH:100%" colSpan="5">
+          <font color="#FFFFFF"><b> Totals</b></font>
+        </td>
+      </tr>
+      <tr style="HEIGHT:45px">
+        <td style="WIDTH:40%" />
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>2d Area</b></p>
+          <p style="LINE-HEIGHT:0">(Sq. Ft.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Cut</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Fill</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+        <td style="WIDTH:15%" align="middle">
+          <p style="LINE-HEIGHT:0"><b>Net</b></p>
+          <p style="LINE-HEIGHT:0">(Cu. Yd.)</p>
+        </td>
+      </tr>
+      <tr style="HEIGHT:30px">
+        <td> Total</td>
+        <td>@Volume.TotalArea@</td>
+        <td>@Volume.TotalCutAdjusted@</td>
+        <td>@Volume.TotalFillAdjusted@</td>
+        <td>@Volume.TotalNetAdjusted@</td>
+      </tr>
+    </tbody>
+  </table>
+</BODY>
+
+</HTML>
