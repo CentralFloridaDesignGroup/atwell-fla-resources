@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--This file represents feature coding definitions-->
-<FeatureCodingDefinitions CreationDate="2023-07-06T09:02:52.6768066-04:00" DateModified="2023-08-23T20:37:11.3393842-04:00" Description="Florida Codes 2023.09.R0" SchemaVersion="9" Author="NWHITE" xmlns="http://trimble.com/schema/fxl">
+<FeatureCodingDefinitions CreationDate="2023-07-06T09:02:52.6768066-04:00" DateModified="2023-09-13T11:46:01.9673287-04:00" Description="Florida Codes 2023.09.R0" SchemaVersion="9" Author="NWHITE" xmlns="http://trimble.com/schema/fxl">
   <LineStyleDefinitions Version="3.0" xmlns="http://trimble.com/schema/linestyle">
     <LineStyleDefinition Name="Center line" Description="">
       <Units Reference="Paper" Length="Metric" />
@@ -15,6 +15,28 @@
         <Line Color="Empty" LineWeight="1">
           <Location X="1.330000" Y="0.000000" />
           <Location X="1.670000" Y="0.000000" />
+        </Line>
+      </Pattern>
+    </LineStyleDefinition>
+    <LineStyleDefinition Name="Dash dot dot 2" Description="">
+      <Units Reference="Paper" Length="Metric" />
+      <PatternType>PartToJoin</PatternType>
+      <Pattern TotalLength="2.000000" EndLength="1.330000">
+        <Line Color="Empty" LineWeight="1">
+          <Location X="0.000000" Y="0.000000" />
+          <Location X="1.330000" Y="0.000000" />
+        </Line>
+      </Pattern>
+      <Pattern TotalLength="2.000000" EndLength="0.010000">
+        <Line Color="Empty" LineWeight="1">
+          <Location X="1.550000" Y="0.000000" />
+          <Location X="1.560000" Y="0.000000" />
+        </Line>
+      </Pattern>
+      <Pattern TotalLength="2.000000" EndLength="0.010000">
+        <Line Color="Empty" LineWeight="1">
+          <Location X="1.770000" Y="0.000000" />
+          <Location X="1.780000" Y="0.000000" />
         </Line>
       </Pattern>
     </LineStyleDefinition>
@@ -355,6 +377,16 @@
       <Print>true</Print>
     </LayerDefinition>
     <LayerDefinition>
+      <Name>TOPO-HARDSCAPE</Name>
+      <Color>FFFFFFFF</Color>
+      <LineStyleName>Solid</LineStyleName>
+      <LineWeight>0</LineWeight>
+      <ProtectLayer>false</ProtectLayer>
+      <LayerGroup>&lt;&lt;None&gt;&gt;</LayerGroup>
+      <DisplayPriority>64</DisplayPriority>
+      <Print>true</Print>
+    </LayerDefinition>
+    <LayerDefinition>
       <Name>UTILITIES-ELECTRIC</Name>
       <Color>FFFF0000</Color>
       <LineStyleName>Solid</LineStyleName>
@@ -451,13 +483,6 @@
     </PointFeatureDefinition>
     <LineFeatureDefinition Code="ACU" Name="AIR CONDITIONER UNIT" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="ANT" Name="ANTENNA" Category="GENERAL TOPO" IncludeInSurface="false" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARL" Name="ARROW LEFT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARR" Name="ARROW RIGHT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARS" Name="ARROW STRAIGHT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARSL" Name="ARROW STRAIGHT LEFT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARSR" Name="ARROW STRAIGHT RIGHT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ART" Name="ARROW THREE WAY" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
-    <PointFeatureDefinition Code="ARU" Name="ARROW U-TURN" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="" />
     <LineFeatureDefinition Code="AC" Name="ASPHALT CROWN" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-PAVEMENT" FieldLineStyle="Solid" LineStyleName="Center line" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="ROAD-PAVEMENT" />
     <LineFeatureDefinition Code="AP" Name="ASPHALT EDGE OF ROAD" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-PAVEMENT" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="APX" Name="ASPHALT SHOT" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-PAVEMENT" PointLabelStyle="" />
@@ -468,6 +493,7 @@
             <Item>TYPE D</Item>
             <Item>TYPE F</Item>
             <Item>MIAMI</Item>
+            <Item>OTHER</Item>
           </ListItems>
         </ListAttribute>
       </Attributes>
@@ -484,14 +510,13 @@
     </LineFeatureDefinition>
     <LineFeatureDefinition Code="BNK" Name="BANK" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="BL" Name="BASELINE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Center line" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <PointFeatureDefinition Code="BN" Name="BEACON" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" PointLabelStyle="" />
-    <PointFeatureDefinition Code="BNCH" Name="BENCH" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
+    <LineFeatureDefinition Code="BNCH" Name="BENCH" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="BKRK" Name="BIKERACK" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <LineFeatureDefinition Code="BOL" Name="BOLLARD" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+    <PointFeatureDefinition Code="BOL" Name="BOLLARD" Category="GENERAL TOPO" IncludeInSurface="false" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="">
       <Attributes>
-        <DoubleAttribute Name="SIZE" EntryMethod="Required" IsLabelVisible="true" DefaultValue="6" MinimumValue="2" MaximumValue="1.7976931348623157E+308" />
+        <StringAttribute Name="SIZE" Description="Size of the bollard" EntryMethod="Required" IsLabelVisible="true" DefaultValue="6" />
       </Attributes>
-    </LineFeatureDefinition>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="BXC" Name="BOX CULVERT" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="BRDG" Name="BRDGE" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="BRIDGE-ELEMENT" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="BRCK" Name="BRICK EDGE OF ROAD" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-BRICK" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
@@ -512,16 +537,19 @@
     </LineFeatureDefinition>
     <LineFeatureDefinition Code="BOH" Name="BUILDING OVERHANG" Category="GENERAL TOPO" IncludeInSurface="true" Color="FF0000FF" Layer="SURVEY-BUILDING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="BSTP" Name="BUS STOP" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <LineFeatureDefinition Code="CATV" Name="CABLE TV CONDUIT (AERIAL)" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <LineFeatureDefinition Code="CAN" Name="CANAL ELDGE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <PointFeatureDefinition Code="CTV" Name="CABLE TV SERVICE BOX" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" PointLabelStyle="" />
     <LineFeatureDefinition Code="CNPY" Name="CANOPY" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-BUILDING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="CB" Name="CATCH BASIN" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="CGD" Name="CATTLE GUARD" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="FARMING-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <PointFeatureDefinition Code="CHK" Name="CHECK POINT" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="" />
+    <PointFeatureDefinition Code="CHK" Name="CHECK POINT" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
+      <Attributes>
+        <StringAttribute Name="CHECK TO" EntryMethod="Optional" IsLabelVisible="true" />
+      </Attributes>
+    </PointFeatureDefinition>
     <PointFeatureDefinition Code="CO" Name="CLEANOUT" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-SANITARY" PointLabelStyle="" />
     <LineFeatureDefinition Code="CC" Name="CONCRETE CROWN" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-CONCRETE" FieldLineStyle="Solid" LineStyleName="Center line" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="CP" Name="CONCRETE EDGE" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-CONCRETE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <PointFeatureDefinition Code="CMON" Name="CONCRETE MONUMENT" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
+    <PointFeatureDefinition Code="CM" Name="CONCRETE MONUMENT" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
       <Attributes>
         <ListAttribute Name="STATUS" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
           <ListItems>
@@ -548,8 +576,9 @@
     <LineFeatureDefinition Code="CINL" Name="CURB INLET" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="FNC" Name="FENCE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="0" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
-        <ListAttribute Name="TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+        <ListAttribute Name="TYPE" Description="Type of fence" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
           <ListItems>
+            <Item>CLF</Item>
             <Item>WBF</Item>
             <Item>BWF</Item>
             <Item>PBF</Item>
@@ -592,6 +621,7 @@
         </ListAttribute>
       </Attributes>
     </PointFeatureDefinition>
+    <PointFeatureDefinition Code="FP" Name="FLAG POLE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
     <LineFeatureDefinition Code="FB" Name="FORMBOARD" Category="GENERAL TOPO" IncludeInSurface="true" Color="FF00FF00" Layer="SURVEY-BUILDING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="FND" Name="FOUNDATION" Category="GENERAL TOPO" IncludeInSurface="true" Color="FF00FF00" Layer="SURVEY-BUILDING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
@@ -607,9 +637,35 @@
         <DoubleAttribute Name="NUMBER OF FLOORS" EntryMethod="Optional" IsLabelVisible="true" DefaultValue="1" MinimumValue="1" MaximumValue="1.7976931348623157E+308" />
       </Attributes>
     </LineFeatureDefinition>
+    <LineFeatureDefinition Code="GA" Name="GATE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="0" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+      <Attributes>
+        <ListAttribute Name="TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>WBF</Item>
+            <Item>BWF</Item>
+            <Item>PBF</Item>
+            <Item>WVF</Item>
+            <Item>HWF</Item>
+            <Item>OTHER</Item>
+          </ListItems>
+        </ListAttribute>
+        <DoubleAttribute Name="HEIGHT" EntryMethod="Required" IsLabelVisible="true" DefaultValue="6" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" />
+      </Attributes>
+    </LineFeatureDefinition>
     <LineFeatureDefinition Code="GB" Name="GRADE BREAK" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Dashed 1-1" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="GRT" Name="GRATE" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-STORM" PointLabelStyle="" />
     <PointFeatureDefinition Code="GS" Name="GROUND SHOT" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" PointLabelStyle="" />
+    <PointFeatureDefinition Code="GUY" Name="GUY ANCHOR" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
+    <PointFeatureDefinition Code="HT" Name="HUB AND TACK" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="STATUS" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>SET</Item>
+            <Item>FOUND</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
     <PointFeatureDefinition Code="INV" Name="INVERT" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
       <Attributes>
         <ListAttribute Name="UTILITY" EntryMethod="Required" IsLabelVisible="true">
@@ -628,6 +684,7 @@
             <Item>CLAY</Item>
           </ListItems>
         </ListAttribute>
+        <DoubleAttribute Name="MEASURE DOWN" EntryMethod="Optional" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" NumberOfDecimals="2" />
       </Attributes>
     </PointFeatureDefinition>
     <PointFeatureDefinition Code="IP" Name="IRON PIPE" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
@@ -664,10 +721,38 @@
         <StringAttribute Name="DESCRIPTION" EntryMethod="Required" IsLabelVisible="true" />
       </Attributes>
     </PointFeatureDefinition>
+    <PointFeatureDefinition Code="ARR" Name="LANE ARROW" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="DIRECTION" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>STRAIGHT</Item>
+            <Item>LEFT</Item>
+            <Item>RIGHT</Item>
+            <Item>STRAIGHT LEFT</Item>
+            <Item>STRAIGHT RIGHT</Item>
+            <Item>THREE-WAY</Item>
+            <Item>LEFT RIGHT</Item>
+            <Item>U TURN</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="LL" Name="LANE LINE" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="LLDW" Name="LANE LINE DOUBLE WHITE" Category="ROAD" IncludeInSurface="true" Color="FFFFFFFF" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="DOUBLE SOLID" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="LLDY" Name="LANE LINE DOUBLE YELLOW" Category="ROAD" IncludeInSurface="true" Color="FFFFFF00" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="DOUBLE SOLID" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="LLHC" Name="LANE LINE HANDICAP" Category="ROAD" IncludeInSurface="true" Color="FF0000FF" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="LLSB" Name="LANE LINE STOP BAR" Category="ROAD" IncludeInSurface="true" Color="FFFFFFFF" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="By Layer" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="LLY" Name="LANE LINE YELLOW" Category="ROAD" IncludeInSurface="true" Color="FFFFFF00" Layer="ROAD-STRIPING" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <PointFeatureDefinition Code="LATH" Name="LATH" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="STATUS" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>SET</Item>
+            <Item>FOUND</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="LS" Name="LIFT STATION" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-SANITARY" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
         <ListAttribute Name="SECTION" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
@@ -679,27 +764,60 @@
         </ListAttribute>
       </Attributes>
     </LineFeatureDefinition>
+    <PointFeatureDefinition Code="LP" Name="LIGHT POLE" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" PointLabelStyle="" />
+    <PointFeatureDefinition Code="MBX" Name="MAILBOX" Category="GENERAL TOPO" IncludeInSurface="false" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <StringAttribute Name="ADDRESS" EntryMethod="Optional" IsLabelVisible="true" />
+      </Attributes>
+    </PointFeatureDefinition>
     <PointFeatureDefinition Code="MHE" Name="MANHOLE ELECTRIC" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" PointLabelStyle="" />
     <PointFeatureDefinition Code="MHGT" Name="MANHOLE GREASE TRAP" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" PointLabelStyle="" />
     <PointFeatureDefinition Code="MHS" Name="MANHOLE SANITARY SEWER" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" PointLabelStyle="" />
     <PointFeatureDefinition Code="MHD" Name="MANHOLE STORM" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" PointLabelStyle="" />
+    <PointFeatureDefinition Code="MHT" Name="MANHOLE TELEPHONE" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" PointLabelStyle="" />
+    <PointFeatureDefinition Code="MTR" Name="METER" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="UTILITY" Description="Type of utility" EntryMethod="Required" IsLabelVisible="true">
+          <ListItems>
+            <Item>WATER</Item>
+            <Item>REUSE</Item>
+            <Item>GAS</Item>
+            <Item>ELECTRIC</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="MES" Name="MITERED END SECTION" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-STORM" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="NL" Name="NAIL" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
       <Attributes>
-        <ListAttribute Name="STATUS" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+        <ListAttribute Name="STATUS" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="1">
           <ListItems>
             <Item>FOUND</Item>
             <Item>SET</Item>
+          </ListItems>
+        </ListAttribute>
+        <ListAttribute Name="TYPE" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="1">
+          <ListItems>
+            <Item>60D</Item>
+            <Item>MAG</Item>
+            <Item>PK</Item>
           </ListItems>
         </ListAttribute>
       </Attributes>
     </PointFeatureDefinition>
     <PointFeatureDefinition Code="NLD" Name="NAIL &amp; DISK" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
       <Attributes>
-        <ListAttribute Name="STATUS" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+        <ListAttribute Name="STATUS" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="1">
           <ListItems>
             <Item>FOUND</Item>
             <Item>SET</Item>
+          </ListItems>
+        </ListAttribute>
+        <ListAttribute Name="TYPE" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="1">
+          <ListItems>
+            <Item>60D</Item>
+            <Item>MAG</Item>
+            <Item>PK</Item>
           </ListItems>
         </ListAttribute>
         <StringAttribute Name="DESCRIPTION" EntryMethod="Required" IsLabelVisible="true" />
@@ -737,6 +855,17 @@
         <StringAttribute Name="COMPANY" EntryMethod="Optional" IsLabelVisible="true" />
       </Attributes>
     </PointFeatureDefinition>
+    <PointFeatureDefinition Code="PST" Name="POST" Category="GENERAL TOPO" IncludeInSurface="false" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
+    <PointFeatureDefinition Code="PP" Name="POWER POLE" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>WOOD</Item>
+            <Item>CONCRETE</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="RTNW" Name="RETENTION WALL" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
         <ListAttribute Name="SHOT PLACEMENT" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
@@ -749,6 +878,31 @@
         <StringAttribute Name="SIZE" EntryMethod="Optional" IsLabelVisible="true" />
       </Attributes>
     </LineFeatureDefinition>
+    <PointFeatureDefinition Code="RSR" Name="RISER" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="UTILITY TYPE" EntryMethod="Required" IsLabelVisible="true">
+          <ListItems>
+            <Item>ELECTRIC</Item>
+            <Item>TELEPHONE</Item>
+            <Item>FIBER OPTIC</Item>
+            <Item>TRAFFIC</Item>
+          </ListItems>
+        </ListAttribute>
+        <StringAttribute Name="COMPANY" EntryMethod="Optional" IsLabelVisible="true" />
+      </Attributes>
+    </PointFeatureDefinition>
+    <LineFeatureDefinition Code="SW" Name="SIDEWALK" Category="GENERAL TOPO" IncludeInSurface="true" Color="FF0000FF" Layer="TOPO-HARDSCAPE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <PointFeatureDefinition Code="SIGN" Name="SIGN" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="TYPE" Description="Type of sign" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>SIGNLE SUPPORT</Item>
+            <Item>MULTI SUPPORT</Item>
+          </ListItems>
+        </ListAttribute>
+        <StringAttribute Name="CONTENT" Description="Sign content" EntryMethod="Optional" IsLabelVisible="true" />
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="BS" Name="SUPPORT BEAM" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="BRIDGE-ELEMENT" FieldLineStyle="Solid" LineStyleName="Dashed 1-1" LineStyleScale="20" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="TOS" Name="TOE OF SLOPE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="TOB" Name="TOP OF BANK" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
@@ -772,7 +926,13 @@
         </ListAttribute>
       </Attributes>
     </PointFeatureDefinition>
-    <LineFeatureDefinition Code="BARW" Name="TRAFFIC BARRIER WALL" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-WALL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="TBW" Name="TRAFFIC BARRIER WALL" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-WALL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <PointFeatureDefinition Code="TREE" Name="TREE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <DoubleAttribute Name="SIZE" EntryMethod="Required" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" />
+        <StringAttribute Name="TYPE" EntryMethod="Required" IsLabelVisible="true" />
+      </Attributes>
+    </PointFeatureDefinition>
     <LineFeatureDefinition Code="UGCW" Name="UNDERGROUND CHILLED WATER" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-WATER" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGC" Name="UNDERGROUND COMMUNICATIONS" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGE" Name="UNDERGROUND ELECTRIC" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
@@ -783,31 +943,55 @@
     <LineFeatureDefinition Code="UGSW" Name="UNDERGROUND STEAM WATER" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-WATER" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGT" Name="UNDERGROUND TELEPHONE" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGTR" Name="UNDERGROUND TRAFFIC" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="UGTV" Name="UNDERGROUND TV" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-TELEPHONE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGU" Name="UNDERGROUND UNKNOWN" Category="UTILITIES SUE" IncludeInSurface="true" Color="FF00FFFF" Layer="UTILITIES-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <LineFeatureDefinition Code="UGW" Name="UNDERGROUND WATER" Category="UTILITIES SUE" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-WATER" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
-    <LineFeatureDefinition Code="VLV" Name="VALVE" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+    <PointFeatureDefinition Code="MRK" Name="UTILITY MARKER" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
       <Attributes>
-        <ListAttribute Name="UTILITY" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+        <ListAttribute Name="UTILITY TYPE" Description="Type of utility the marker is indicating" EntryMethod="Required" IsLabelVisible="true">
+          <ListItems>
+            <Item>ELECTRIC</Item>
+            <Item>FIBER OPTIC</Item>
+            <Item>GAS</Item>
+            <Item>TELEPHONE</Item>
+            <Item>TV</Item>
+            <Item>OTHER</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </PointFeatureDefinition>
+    <LineFeatureDefinition Code="VLT" Name="UTILITY VAULT" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+      <Attributes>
+        <ListAttribute Name="UTILITY TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>ELECTRIC</Item>
+            <Item>TELEPHONE</Item>
+            <Item>TRAFFIC</Item>
+            <Item>UNKNOWN</Item>
+          </ListItems>
+        </ListAttribute>
+        <ListAttribute Name="POSITION" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+          <ListItems>
+            <Item>ABOVE GROUND</Item>
+            <Item>BELOW GROUND</Item>
+          </ListItems>
+        </ListAttribute>
+      </Attributes>
+    </LineFeatureDefinition>
+    <PointFeatureDefinition Code="VLV" Name="VALVE" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
+      <Attributes>
+        <ListAttribute Name="UTILITY TYPE" EntryMethod="Required" IsLabelVisible="true">
           <ListItems>
             <Item>WATER</Item>
             <Item>REUSE</Item>
             <Item>FORCE MAIN</Item>
             <Item>GAS</Item>
+            <Item>IRRIGATION</Item>
           </ListItems>
         </ListAttribute>
-        <ListAttribute Name="TYPE" Description="TYPE OF VALVE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
-          <ListItems>
-            <Item>UNKNOWN</Item>
-            <Item>GATE</Item>
-            <Item>BALL</Item>
-            <Item>ARV</Item>
-            <Item>CORP STOP</Item>
-            <Item>HOSE BIB</Item>
-          </ListItems>
-        </ListAttribute>
-        <DoubleAttribute Name="SIZE" EntryMethod="Required" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" />
+        <DoubleAttribute Name="SIZE" EntryMethod="Optional" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" NumberOfDecimals="2" />
       </Attributes>
-    </LineFeatureDefinition>
+    </PointFeatureDefinition>
     <PointFeatureDefinition Code="VC" Name="VALVE COVER" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
       <Attributes>
         <ListAttribute Name="UTILITY TYPE" EntryMethod="Optional" IsLabelVisible="true">
@@ -820,28 +1004,24 @@
         </ListAttribute>
       </Attributes>
     </PointFeatureDefinition>
-    <LineFeatureDefinition Code="AGV" Name="VAULT ABOVE GROUND" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+    <LineFeatureDefinition Code="WALL" Name="WALL" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
-        <ListAttribute Name="UTILITY TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
+        <ListAttribute Name="MATERIAL" Description="Material of the wall" EntryMethod="Required" IsLabelVisible="true">
           <ListItems>
-            <Item>ELECTRIC</Item>
-            <Item>TELEPHONE</Item>
-            <Item>TRAFFIC</Item>
-            <Item>UNKNOWN</Item>
+            <Item>WOOD</Item>
+            <Item>CONC</Item>
+            <Item>BRICK</Item>
+            <Item>OTHER</Item>
           </ListItems>
         </ListAttribute>
+        <DoubleAttribute Name="THICKNESS" Description="How thick is the wall (face to face)" EntryMethod="Required" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" NumberOfDecimals="2" />
+        <DoubleAttribute Name="HEIGHT" Description="Height of the wall" EntryMethod="Required" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" NumberOfDecimals="2" />
       </Attributes>
     </LineFeatureDefinition>
-    <LineFeatureDefinition Code="BGV" Name="VAULT BELOW GROUND" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
+    <LineFeatureDefinition Code="WE" Name="WATER EDGE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FF0000FF" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Dash dot dot 2" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="WF" Name="WETLAND FLAG" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0">
       <Attributes>
-        <ListAttribute Name="UTILITY TYPE" EntryMethod="Required" IsLabelVisible="true" DefaultItemIndex="0">
-          <ListItems>
-            <Item>ELECTRIC</Item>
-            <Item>TELEPHONE</Item>
-            <Item>TRAFFIC</Item>
-            <Item>UNKNOWN</Item>
-          </ListItems>
-        </ListAttribute>
+        <StringAttribute Name="ID" EntryMethod="Required" IsLabelVisible="true" />
       </Attributes>
     </LineFeatureDefinition>
     <PointFeatureDefinition Code="WPB" Name="WIRE PULL BOX" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-GENERAL" PointLabelStyle="">
