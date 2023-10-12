@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--This file represents feature coding definitions-->
-<FeatureCodingDefinitions CreationDate="2023-07-06T09:02:52.6768066-04:00" DateModified="2023-09-13T11:46:01.9673287-04:00" Description="Florida Codes 2023.09.R0" SchemaVersion="9" Author="NWHITE" xmlns="http://trimble.com/schema/fxl">
+<FeatureCodingDefinitions CreationDate="2023-07-06T09:02:52.6768066-04:00" DateModified="2023-10-12T11:51:07.7000938-04:00" Description="Florida Codes 2023.09.R0" SchemaVersion="9" Author="NWHITE" xmlns="http://trimble.com/schema/fxl">
   <LineStyleDefinitions Version="3.0" xmlns="http://trimble.com/schema/linestyle">
     <LineStyleDefinition Name="Center line" Description="">
       <Units Reference="Paper" Length="Metric" />
@@ -417,6 +417,16 @@
       <Print>true</Print>
     </LayerDefinition>
     <LayerDefinition>
+      <Name>UTILITIES-REUSE</Name>
+      <Color>FF800080</Color>
+      <LineStyleName>Solid</LineStyleName>
+      <LineWeight>0</LineWeight>
+      <ProtectLayer>false</ProtectLayer>
+      <LayerGroup>&lt;&lt;None&gt;&gt;</LayerGroup>
+      <DisplayPriority>64</DisplayPriority>
+      <Print>true</Print>
+    </LayerDefinition>
+    <LayerDefinition>
       <Name>UTILITIES-SANITARY</Name>
       <Color>FF00FF00</Color>
       <LineStyleName>Solid</LineStyleName>
@@ -656,6 +666,7 @@
     <PointFeatureDefinition Code="GRT" Name="GRATE" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-STORM" PointLabelStyle="" />
     <PointFeatureDefinition Code="GS" Name="GROUND SHOT" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" PointLabelStyle="" />
     <PointFeatureDefinition Code="GUY" Name="GUY ANCHOR" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-GENERAL" PointLabelStyle="" />
+    <LineFeatureDefinition Code="HDRL" Name="HANDRAIL" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-HARDSCAPE" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="HT" Name="HUB AND TACK" Category="CONTROL" IncludeInSurface="true" Color="FE000000" Layer="SURVEY-CONTROL" PointLabelStyle="">
       <Attributes>
         <ListAttribute Name="STATUS" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="0">
@@ -721,6 +732,7 @@
         <StringAttribute Name="DESCRIPTION" EntryMethod="Required" IsLabelVisible="true" />
       </Attributes>
     </PointFeatureDefinition>
+    <PointFeatureDefinition Code="ICV" Name="IRRIGATION CONTROL VALVE" Category="UTILITIES GENERAL" IncludeInSurface="false" Color="FE000000" Layer="UTILITIES-REUSE" PointLabelStyle="" />
     <PointFeatureDefinition Code="ARR" Name="LANE ARROW" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-STRIPING" PointLabelStyle="">
       <Attributes>
         <ListAttribute Name="DIRECTION" EntryMethod="Optional" IsLabelVisible="true" DefaultItemIndex="0">
@@ -912,6 +924,9 @@
           <ListItems>
             <Item>STORM</Item>
             <Item>SANITARY</Item>
+            <Item>WATER</Item>
+            <Item>SANITARY</Item>
+            <Item>REUSE</Item>
           </ListItems>
         </ListAttribute>
         <StringAttribute Name="SIZE" EntryMethod="Required" IsLabelVisible="true" />
@@ -927,6 +942,7 @@
       </Attributes>
     </PointFeatureDefinition>
     <LineFeatureDefinition Code="TBW" Name="TRAFFIC BARRIER WALL" Category="ROAD" IncludeInSurface="true" Color="FE000000" Layer="ROAD-WALL" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
+    <LineFeatureDefinition Code="TRFR" Name="TRANSFORMER" Category="UTILITIES GENERAL" IncludeInSurface="true" Color="FE000000" Layer="UTILITIES-ELECTRIC" FieldLineStyle="Solid" LineStyleName="Solid" LineStyleScale="1" LineLabelStyle="" PointLabelStyle="" PointLayer="0" />
     <PointFeatureDefinition Code="TREE" Name="TREE" Category="GENERAL TOPO" IncludeInSurface="true" Color="FE000000" Layer="TOPO-GENERAL" PointLabelStyle="">
       <Attributes>
         <DoubleAttribute Name="SIZE" EntryMethod="Required" IsLabelVisible="true" MinimumValue="-1.7976931348623157E+308" MaximumValue="1.7976931348623157E+308" />
