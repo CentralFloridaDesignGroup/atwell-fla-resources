@@ -62,6 +62,24 @@ $(document).ready(function () {
     new bootstrap.Toast($("#liveToast")[0]).show();
   })
 
+  $("#AEvariesCheck").change(function() {
+    if (this.checked) {
+      $("#femaElevationForm").attr("disabled", "disabled");
+    }
+    else {
+      $("#femaElevationForm").removeAttr("disabled");
+    }
+  })
+
+  $("#VEvariesCheck").change(function() {
+    if (this.checked) {
+      $("#femaElevationVEForm").attr("disabled", "disabled");
+    }
+    else {
+      $("#femaElevationVEForm").removeAttr("disabled");
+    }
+  })
+
   $("a[filter]").on('click', function () {
     // clear list
     while (listItems.length > 0) {

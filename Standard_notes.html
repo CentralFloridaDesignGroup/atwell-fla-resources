@@ -51,7 +51,9 @@
         <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
       </div>
       <div class="col-12 col-lg-6">
-        <p>To be added</p>
+        <p>Pursuant to <a href="https://www.law.cornell.edu/regulations/florida/RSA-5J-17.051" target="_blank">5J-17.051(3)(b), F.A.C.</a>, all surveys must state the type or purpose of survey. When the Surveyor performs a survey that is not a cookie-cutter survey, the survey can specify the purpose using this note.</p>
+        <p><span class="hl-orange">SURVEY TYPE</span> The type of survey being performed. Typically in this note, it is a &quot;specific purpose&quot; survey.</p>
+        <p><span class="hl-orange">SURVEY PURPOSE</span> The articulated reason for the survey. What is the Surveyor measuring or reporting on the map?</p>
       </div>
     </div>
     <hr class="hr-1 py-0">
@@ -139,7 +141,7 @@
       <h4 class="text-center">Boundary Survey Constitution <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
         <p class="autocad-command" use="note" filters="">
-          THIS <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> DOES NOT CONSTITUTE A BOUNDARY SURVEY, AS SUCH.
+          THIS <span target="surveyType" class="hl-orange">{SURVEY TYPE}</span> SURVEY DOES NOT CONSTITUTE A BOUNDARY SURVEY, AS SUCH.
         </p>
         <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
         <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
@@ -383,6 +385,7 @@
                     <option value="Topographic">
                     <option value="ALTA / NSPS Land Title">
                     <option value="Specific Purpose">
+                    <option value="Record">
                   </datalist>
                   <input class="form-control" list="surveyTypes" id="surveyType" placeholder="Type to search..." target-field="surveyType">
                 </div>
@@ -460,29 +463,47 @@
                     <input type="date" class="form-control" id="femaEffectiveDate" target-field="femaEffectiveDate">
                   </div>
                 </div>
-                <div class="col-12 col-lg-3 mb-2">
+                <div class="col-12 col-lg-4 mb-2">
                   <input class="form-check-input" type="checkbox" value="" id="femaZoneX" checked>
                   <label class="form-check-label" for="femaZoneX"><b>Zone &quot;X&quot; (Unshaded)</b></label>
                   <p>Areas determined to be outside the 0.2% annual chance floodplain</p>
                 </div>
-                <div class="col-12 col-lg-3 mb-2">
+                <div class="col-12 col-lg-4 mb-2">
                   <input class="form-check-input" type="checkbox" value="" id="femaZoneX2">
                   <label class="form-check-label" for="femaZoneX2"><b>Zone &quot;X&quot; (Shaded)</b></label>
                   <p>Areas of 0.2% annual chance flood; areas of 1% annual chance flood with average depths of less than 1 foot or with drainage areas less than 1 square mile; and areas protected by levees from 1% annual chance flood</p>
                 </div>
-                <div class="col-12 col-lg-3 mb-2">
+                <div class="col-12 col-lg-4 mb-2">
                   <input class="form-check-input" type="checkbox" value="" id="femaZoneA">
                   <label class="form-check-label" for="femaZoneA"><b>Zone &quot;A&quot;</b></label>
                   <p>No base flood elevation determined</p>
                 </div>
-                <div class="col-12 col-lg-3 mb-2">
+                <div class="col-12 col-lg-4 mb-2">
                   <input class="form-check-input" type="checkbox" value="" id="femaZoneAE">
                   <label class="form-check-label" for="femaZoneAE"><b>Zone &quot;AE&quot;</b></label>
-                  <p>Base flood elevation determined at <span target="femaElevation" class="hl-orange py-0 my-0">X</span> feet</p>
+                  <p>Base flood elevation determined at <span target="femaElevation" class="hl-orange py-0 my-0">0 FEET</span></p>
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="femaElevation">BFE Elevation</span>
                     <input type="number" class="form-control" aria-label="BFE Elevation" aria-describedby="femaElevation"
-                           target-field="femaElevation" id="femaElevationForm">
+                           target-field="femaElevation" id="femaElevationForm" value="0">
+                    <span class="input-group-text" id="AEvaries">BFE Varies</span>
+                    <div class="input-group-text">
+                      <input id="AEvariesCheck" class="form-check-input mt-0" type="checkbox" value="" target-field="femaElevation" aria-label="The subject property has multiple BFE elevations">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 mb-2">
+                  <input class="form-check-input" type="checkbox" value="" id="femaZoneVE">
+                  <label class="form-check-label" for="femaZoneVE"><b>Zone &quot;VE&quot;</b></label>
+                  <p>Coastal areas with a 1% or greater chance of flooding and an additional hazard associated with storm waves, where the base flood elevation is determined at <span target="femaElevationVE" class="hl-orange py-0 my-0">0 FEET</span></p>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="femaElevation">BFE Elevation</span>
+                    <input type="number" class="form-control" aria-label="BFE Elevation" aria-describedby="femaElevationVE"
+                           target-field="femaElevationVE" id="femaElevationVEForm" value="0">
+                    <span class="input-group-text" id="VEvaries">BFE Varies</span>
+                    <div class="input-group-text">
+                      <input id="VEvariesCheck" class="form-check-input mt-0" type="checkbox" value="" target-field="femaElevation" aria-label="The subject property has multiple BFE elevations">
+                    </div>
                   </div>
                 </div>
                 <div class="col-12">
@@ -628,7 +649,32 @@
   })
   document.getElementById("femaElevationForm").addEventListener("change", () => {
     var femaField = document.getElementById("femaElevationForm");
-    document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = femaField.value;
+    document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = femaField.value + " feet";
+  });
+
+  document.getElementById("AEvariesCheck").addEventListener("change", () => {
+    var femaField = document.getElementById("femaElevationForm");
+    if (document.getElementById("AEvariesCheck").checked){
+      document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = "varying BFE elevations";
+    }
+    else {
+      document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = femaField.value + " feet";
+    }
+  });
+
+  document.getElementById("femaElevationVEForm").addEventListener("change", () => {
+    var femaField = document.getElementById("femaElevationVEForm");
+    document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = femaField.value + " feet";
+  });
+
+  document.getElementById("VEvariesCheck").addEventListener("change", () => {
+    var femaField = document.getElementById("femaElevationVEForm");
+    if (document.getElementById("VEvariesCheck").checked){
+      document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = "varying BFE elevations";
+    }
+    else {
+      document.querySelector("[target='" + femaField.getAttribute("target-field") + "']").innerText = femaField.value + " feet";
+    }
   });
 
   document.getElementById("showLomarFields").addEventListener("change", () => {
