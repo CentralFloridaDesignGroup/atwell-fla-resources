@@ -108,6 +108,23 @@
       </div>
     </div>
     <hr class="hr-1 py-0">
+    <div class="row" id="sue-asce-note-level-b">
+      <h4 class="text-center"><span class="badge text-bg-success">NEW!</span> Utility Engineering - Level B Note <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
+      <div class="col-12 col-lg-6">
+        <p class="autocad-command" use="note" filters="sue">
+          SUBSURFACE UTILITY INFORMATION SHOWN HEREON WAS PROVIDED BY <span target="sueCompany" class="hl-orange">{SUE Subconsultant}</span> ON <span target="sueFieldDate" class="hl-orange">{Field Date}</span> AT THE REQUEST OF ATWELL. THE SUBCONSULTANT PERFORMED THIS WORK TO A LEVEL B &quot;DESIGNATION&quot; PER ASCE 38-22 STANDARDS. ATWELL LOCATED ABOVE GROUND FLAGGING AND MARKERS PROVIDED BY THE SUBCONSULTANT, BUT DOES NOT GUARANTEE THEIR ACCURACY. ATWELL HAS NOT COMPLETED ANY ADDITIONAL RESEARCH OR FIELD WORK FOR THIS TASK. NEITHER ATWELL NOR THE SUBCONSULTANT HAVE PROVIDED VERTICAL INFORMATION OR SIZES OF UNDERGROUND UTILITIES.</span>
+        </p>
+        <a class="btn btn-primary mb-2 d-print-none" use="copy">Copy to Clipboard</a>
+        <a class="btn btn-secondary mb-2 d-print-none" use="list">Add to List</a>
+      </div>
+      <div class="col-12 col-lg-6">
+        <p>When Atwell is hired to perform Subsurface Utility Engineering (SUE), the Surveyor assumes responsibility of the data shown on the survey unless the Surveyor denotes where the information came from. This note advises the reader that 1) Atwell hired someone else to perform the work, 2) Atwell located the results of the work performed, and 3) Atwell is not responsible for what happened &quot;in between.&quot;</p>
+        <p class="mb-1"><span class="hl-orange">SUE Subconsultant</span> Company name of the subconsultant hired. The Project Manager should have this information.</p>
+        <p class="mb-1"><span class="hl-orange">Field Date</span> Date the <b>subconsultant</b> finished their field work. Not when the report was generated or the data received by Atwell. Atwell's collection date is covered under the general survey date.</p>
+        <span class="hl-red">Additional Requirements</span> If the proposal for service provided by the subconsultant has a note about accuracy standards or limitations, said note <b>must</b> be included on the face of the survey.</p>
+      </div>
+    </div>
+    <hr class="hr-1 py-0">
     <div class="row" id="legal-description">
       <h4 class="text-center">Legal Description Source <a use="link"><i class="bi bi-link-45deg"></i></a></h4>
       <div class="col-12 col-lg-6">
@@ -148,7 +165,7 @@
       </div>
       <div class="col-12 col-lg-6">
         <p>If a boundary survey was not performed for the survey (in the cases of as-builts, topos, and special purpose surveys), we need to state that on the survey. It clears the survey of having to conform to <a href="https://www.law.cornell.edu/regulations/florida/RSA-5J-17.051" target="_blank">5J-17.051, F.A.C.</a>, or the &quot;Boundary Survey Requirements&quot; rule.</p>
-        <p class="mb-1"><span class="badge bg-danger">DO NOT USE</span> Do not have this note if the survey being performed included boundary work and / or determination.</p>
+        <p class="mb-1"><span class="hl-red">DO NOT USE</span> Do not have this note if the survey being performed included boundary work and / or determination.</p>
         <p><span class="hl-orange">SURVEY TYPE</span> The type of survey being performed.</p>
       </div>
     </div>
@@ -590,6 +607,28 @@
                 </div>
               </div>
             </div>
+            <hr class="my-1 py-0">
+            <div>
+              <h5><span class="badge text-bg-success">NEW!</span> Subsurface Utility Engineering (SUE)</h5>
+              <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="showSUESubconsultInfo">
+                <label class="form-check-label" for="showSUESubconsultInfo">This project includes information provided from a third party SUE contractor.</label>
+              </div>
+              <div id="SUESubconsultInfo" class="row" hidden>
+                <div class="col-12 col-lg-6">
+                  <div class="input-group mb-2">
+                    <label for="sueCompany" class="input-group-text">SUE Consultant</label>
+                    <input class="form-control" id="sueCompany" target-field="sueCompany">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="input-group mb-2">
+                    <label for="sueFieldDate" class="input-group-text">SUE Field Date</label>
+                    <input type="date" class="form-control" id="sueFieldDate" target-field="sueFieldDate">
+                  </div>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
         <div class="modal-footer w-100">
@@ -702,6 +741,15 @@
       return;
     }
     document.getElementById("WetlandInfo").setAttribute("hidden", "");
+  });
+
+  document.getElementById("showSUESubconsultInfo").addEventListener("change", () => {
+    const status = document.getElementById("showSUESubconsultInfo").checked;
+    if (status) {
+      document.getElementById("SUESubconsultInfo").removeAttribute("hidden");
+      return;
+    }
+    document.getElementById("SUESubconsultInfo").setAttribute("hidden", "");
   });
 
   document.getElementById("surveyType").addEventListener("change", () => {
