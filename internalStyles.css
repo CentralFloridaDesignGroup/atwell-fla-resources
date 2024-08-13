@@ -38,3 +38,11 @@
   border-radius: 5px;
   text-transform: uppercase;
 }
+
+.hl-red {
+  background-color: var(--bs-red);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
